@@ -8,13 +8,10 @@ ActiveRecord Tablefree
 | download rank           |  [![Downloads Today](https://img.shields.io/gem/rd/activerecord-tablefree.svg)](https://github.com/pboling/activerecord-tablefree) |
 | version                 |  [![Version](https://img.shields.io/gem/v/activerecord-tablefree.svg)](https://rubygems.org/gems/activerecord-tablefree) |
 | dependencies            |  [![Depfu](https://badges.depfu.com/badges/96a4d507f1a61a9368655f60fa3cb70f/count.svg)](https://depfu.com/github/pboling/activerecord-tablefree?project=Bundler) |
-| continuous integration  |  [![Build Status](https://travis-ci.org/pboling/activerecord-tablefree.svg?branch=master)](https://travis-ci.org/pboling/activerecord-tablefree) |
-| test coverage           |  [![Test Coverage](https://api.codeclimate.com/v1/badges/9354ad73daf12d480e81/test_coverage)](https://codeclimate.com/github/pboling/activerecord-tablefree/test_coverage) |
-| maintainability         |  [![Maintainability](https://api.codeclimate.com/v1/badges/9354ad73daf12d480e81/maintainability)](https://codeclimate.com/github/pboling/activerecord-tablefree/maintainability)
 | code triage             |  [![Open Source Helpers](https://www.codetriage.com/pboling/activerecord-tablefree/badges/users.svg)](https://www.codetriage.com/pboling/activerecord-tablefree) |
 | homepage                |  [http://www.railsbling.com/tags/activerecord-tablefree/][homepage] |
 | documentation           |  [http://rdoc.info/github/pboling/activerecord-tablefree/frames][documentation] |
-| Spread ~♡ⓛⓞⓥⓔ♡~      |  [🌏](https://about.me/peter.boling), [👼](https://angel.co/peter-boling), [:shipit:](http://coderwall.com/pboling), [![Tweet Peter](https://img.shields.io/twitter/follow/galtzo.svg?style=social&label=Follow)](http://twitter.com/galtzo), [🌹](https://nationalprogressiveparty.org) |
+| Spread ~♡ⓛⓞⓥⓔ♡~      |  [🌏](https://about.me/peter.boling), [👼](https://angel.co/peter-boling), [![Tweet Peter](https://img.shields.io/twitter/follow/galtzo.svg?style=social&label=Follow)](http://twitter.com/galtzo) |
 
 A simple implementation of the ActiveRecord Tableless pattern for any
 Rails project or other Ruby project that uses ActiveRecord.
