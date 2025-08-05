@@ -23,7 +23,7 @@ Gem::Specification.new do |gem|
 
   gem.required_ruby_version = '>= 2.2.2' # Requirement for Rails 5
 
-  gem.add_runtime_dependency('activerecord', '~> 5.0', '>= 5.0.0')
+  gem.add_runtime_dependency('activerecord', '>= 5', '< 9')
 
   gem.add_development_dependency('bundler', '~> 1')
   gem.add_development_dependency('rake', '~> 12', '> 0')
