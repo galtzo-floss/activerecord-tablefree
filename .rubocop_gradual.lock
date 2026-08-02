@@ -8,7 +8,7 @@
   "features/support/rails.rb:1037920026": [
     [4, 24, 64, "Style/HashConversion: Prefer `ary.to_h` to `Hash[ary]`.", 1877744839]
   ],
-  "lib/activerecord/tablefree.rb:2260585932": [
+  "lib/activerecord/tablefree.rb:3798265129": [
     [53, 9, 34, "ThreadSafety/ClassAndModuleAttributes: Avoid mutating class and module attributes.", 3448620919],
     [182, 9, 12, "ThreadSafety/ClassInstanceVariable: Avoid class instance variables.", 3894663404]
   ],

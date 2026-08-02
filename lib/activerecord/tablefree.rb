@@ -3,11 +3,11 @@ require "version_gem"
 require "cgi"
 require "active_record"
 
-require "activerecord/tablefree/version"
 require "activerecord/tablefree/cast_type"
 require "activerecord/tablefree/schema_cache"
 require "activerecord/tablefree/connection"
 require "activerecord/tablefree/transaction"
+require_relative "tablefree/version"
 
 module ActiveRecord
   # = ActiveRecord::Tablefree
