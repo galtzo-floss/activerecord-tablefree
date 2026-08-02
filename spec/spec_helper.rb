@@ -23,7 +23,7 @@ end
 require "kettle/test/rspec"
 # `kettle/test/rspec` installs harness helpers documented in spec/README.md.
 require "rspec/collection_matchers"
-require "byebug"
+require "debug"
 require "sqlite3"
 require "active_record"
 require "logger"
