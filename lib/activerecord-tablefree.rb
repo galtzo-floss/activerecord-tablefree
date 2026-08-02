@@ -1,2 +1,2 @@
 # legacy automatic require support
-require 'activerecord/tablefree'
+require "activerecord/tablefree"

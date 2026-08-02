@@ -1,0 +1,10 @@
+module ActiveRecord
+  module Tablefree
+    module ActsMethods
+      module Version
+        VERSION: String
+      end
+      VERSION: String
+    end
+  end
+end

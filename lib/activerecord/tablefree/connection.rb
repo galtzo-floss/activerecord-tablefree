@@ -1,13 +1,13 @@
 module ActiveRecord::Tablefree
   class Connection < ActiveRecord::ConnectionAdapters::AbstractAdapter
     def initialize
-      @connection          = Object.new # The Raw Connection
-      @owner               = nil
-      @instrumenter        = ActiveSupport::Notifications.instrumenter
-      @logger              = Object.new
-      @config              = Object.new
-      @pool                = nil
-      @schema_cache        = ActiveRecord::Tablefree::SchemaCache.new
+      @connection = Object.new # The Raw Connection
+      @owner = nil
+      @instrumenter = ActiveSupport::Notifications.instrumenter
+      @logger = Object.new
+      @config = Object.new
+      @pool = nil
+      @schema_cache = ActiveRecord::Tablefree::SchemaCache.new
       @quoted_column_names, @quoted_table_names = {}, {}
       @visitor = Object.new
       @lock = Object.new
@@ -15,11 +15,11 @@ module ActiveRecord::Tablefree
     end
 
     def quote_table_name(*_args)
-      ''
+      ""
     end
 
     def quote_column_name(*_args)
-      ''
+      ""
     end
 
     def substitute_at(*_args)
@@ -41,8 +41,8 @@ module ActiveRecord::Tablefree
     def sanitize_limit(limit)
       if limit.is_a?(Integer) || limit.is_a?(Arel::Nodes::SqlLiteral)
         limit
-      elsif limit.to_s.include?(',')
-        Arel.sql limit.to_s.split(',').map { |i| Integer(i) }.join(',')
+      elsif limit.to_s.include?(",")
+        Arel.sql limit.to_s.split(",").map { |i| Integer(i) }.join(",")
       else
         Integer(limit)
       end
@@ -52,7 +52,7 @@ module ActiveRecord::Tablefree
     # Returns a SQL string with the from, join, where, and having clauses,
     #   in addition to the limit and offset.
     def combine_bind_parameters(**_args)
-      ''
+      ""
     end
 
     def lookup_cast_type_from_column(*_args)

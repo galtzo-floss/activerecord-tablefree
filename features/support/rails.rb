@@ -1,12 +1,12 @@
-PROJECT_ROOT     = File.expand_path(File.join(File.dirname(__FILE__), '..', '..')).freeze
-APP_NAME         = 'testapp'.freeze
+PROJECT_ROOT = File.expand_path(File.join(File.dirname(__FILE__), "..", "..")).freeze
+APP_NAME = "testapp".freeze
 BUNDLE_ENV_VARS = %w[RUBYOPT BUNDLE_PATH BUNDLE_BIN_PATH BUNDLE_GEMFILE].freeze
 ORIGINAL_BUNDLE_VARS = Hash[ENV.select { |key, _value| BUNDLE_ENV_VARS.include?(key) }]
 
-ENV['RAILS_ENV'] = 'test'
+ENV["RAILS_ENV"] = "test"
 
 Before do
-  ENV['BUNDLE_GEMFILE'] = File.join(Dir.pwd, ENV['BUNDLE_GEMFILE']) unless ENV['BUNDLE_GEMFILE'].start_with?(Dir.pwd)
+  ENV["BUNDLE_GEMFILE"] = File.join(Dir.pwd, ENV["BUNDLE_GEMFILE"]) unless ENV["BUNDLE_GEMFILE"].start_with?(Dir.pwd)
   @framework_version = nil
 end
 
@@ -16,7 +16,7 @@ After do
   end
 end
 
-When /^I reset Bundler environment variable$/ do
+When(/^I reset Bundler environment variable$/) do
   BUNDLE_ENV_VARS.each do |key|
     ENV[key] = nil
   end
@@ -32,19 +32,19 @@ module RailsCommandHelpers
   end
 
   def framework_major_version
-    framework_version.split('.').first.to_i
+    framework_version.split(".").first.to_i
   end
 
   def new_application_command(app_name)
-    framework_major_version >= 3 ? "rails new #{app_name} --skip-sprockets --skip-javascript --skip-bundle" : "rails #{app_name}"
+    (framework_major_version >= 3) ? "rails new #{app_name} --skip-sprockets --skip-javascript --skip-bundle" : "rails #{app_name}"
   end
 
   def generator_command
-    framework_major_version >= 3 ? 'rails generate' : 'script/generate'
+    (framework_major_version >= 3) ? "rails generate" : "script/generate"
   end
 
   def runner_command
-    framework_major_version >= 3 ? 'rails runner' : 'script/runner'
+    (framework_major_version >= 3) ? "rails runner" : "script/runner"
   end
 end
 

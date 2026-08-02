@@ -18,10 +18,10 @@
 # * http://elabs.se/blog/15-you-re-cuking-it-wrong
 #
 
-require 'uri'
-require 'cgi'
-require File.expand_path(File.join(File.dirname(__FILE__), '..', 'support', 'paths'))
-require File.expand_path(File.join(File.dirname(__FILE__), '..', 'support', 'selectors'))
+require "uri"
+require "cgi"
+require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
+require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "selectors"))
 
 module WithinHelpers
   def with_scope(locator)
@@ -31,36 +31,36 @@ end
 World(WithinHelpers)
 
 # Single-line step scoper
-When /^(.*) within (.*[^:])$/ do |step, parent|
+When(/^(.*) within (.*[^:])$/) do |step, parent|
   with_scope(parent) { When step }
 end
 
 # Multi-line step scoper
-When /^(.*) within (.*[^:]):$/ do |step, parent, table_or_string|
+When(/^(.*) within (.*[^:]):$/) do |step, parent, table_or_string|
   with_scope(parent) { When "#{step}:", table_or_string }
 end
 
-Given /^(?:|I )am on (.+)$/ do |page_name|
+Given(/^(?:|I )am on (.+)$/) do |page_name|
   visit path_to(page_name)
 end
 
-When /^(?:|I )go to (.+)$/ do |page_name|
+When(/^(?:|I )go to (.+)$/) do |page_name|
   visit path_to(page_name)
 end
 
-When /^(?:|I )press "([^"]*)"$/ do |button|
+When(/^(?:|I )press "([^"]*)"$/) do |button|
   click_button(button)
 end
 
-When /^(?:|I )follow "([^"]*)"$/ do |link|
+When(/^(?:|I )follow "([^"]*)"$/) do |link|
   click_link(link)
 end
 
-When /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
+When(/^(?:|I )fill in "([^"]*)" with "([^"]*)"$/) do |field, value|
   fill_in(field, with: value)
 end
 
-When /^(?:|I )fill in "([^"]*)" for "([^"]*)"$/ do |value, field|
+When(/^(?:|I )fill in "([^"]*)" for "([^"]*)"$/) do |value, field|
   fill_in(field, with: value)
 end
 
@@ -75,33 +75,33 @@ end
 # TODO: Add support for checkbox, select og option
 # based on naming conventions.
 #
-When /^(?:|I )fill in the following:$/ do |fields|
+When(/^(?:|I )fill in the following:$/) do |fields|
   fields.rows_hash.each do |name, value|
     When %(I fill in "#{name}" with "#{value}")
   end
 end
 
-When /^(?:|I )select "([^"]*)" from "([^"]*)"$/ do |value, field|
+When(/^(?:|I )select "([^"]*)" from "([^"]*)"$/) do |value, field|
   select(value, from: field)
 end
 
-When /^(?:|I )check "([^"]*)"$/ do |field|
+When(/^(?:|I )check "([^"]*)"$/) do |field|
   check(field)
 end
 
-When /^(?:|I )uncheck "([^"]*)"$/ do |field|
+When(/^(?:|I )uncheck "([^"]*)"$/) do |field|
   uncheck(field)
 end
 
-When /^(?:|I )choose "([^"]*)"$/ do |field|
+When(/^(?:|I )choose "([^"]*)"$/) do |field|
   choose(field)
 end
 
-When /^(?:|I )attach the file "([^"]*)" to "([^"]*)"$/ do |path, field|
+When(/^(?:|I )attach the file "([^"]*)" to "([^"]*)"$/) do |path, field|
   attach_file(field, File.expand_path(path))
 end
 
-Then /^(?:|I )should (not )?see "([^"]*)"$/ do |negate, text|
+Then(/^(?:|I )should (not )?see "([^"]*)"$/) do |negate, text|
   should_name = negate ? :should_not : :should
   if page.respond_to? should_name
     page.send should_name, have_content(text)
@@ -110,30 +110,30 @@ Then /^(?:|I )should (not )?see "([^"]*)"$/ do |negate, text|
   end
 end
 
-Then /^(?:|I )should (not )?see \/([^\/]*)\/$/ do |negate, regexp|
+Then(/^(?:|I )should (not )?see \/([^\/]*)\/$/) do |negate, regexp|
   regexp = Regexp.new(regexp)
   should_name = negate ? :should_not : :should
   if page.respond_to? should_name
-    page.send should_name, have_xpath('//*', text: regexp)
+    page.send should_name, have_xpath("//*", text: regexp)
   else
-    assert(negate ? page.has_no_xpath?('//*', text: regexp) : page.has_xpath?('//*', text: regexp))
+    assert(negate ? page.has_no_xpath?("//*", text: regexp) : page.has_xpath?("//*", text: regexp))
   end
 end
 
-Then /^(?:|I )should be on (.+)$/ do |page_name|
+Then(/^(?:|I )should be on (.+)$/) do |page_name|
   current_path = URI.parse(current_url).path
   expect(current_path).to eq path_to(page_name)
 end
 
-Then /^(?:|I )should have the following query string:$/ do |expected_pairs|
+Then(/^(?:|I )should have the following query string:$/) do |expected_pairs|
   query = URI.parse(current_url).query
   actual_params = query ? CGI.parse(query) : {}
   expected_params = {}
-  expected_pairs.rows_hash.each_pair { |k, v| expected_params[k] = v.split(',') }
+  expected_pairs.rows_hash.each_pair { |k, v| expected_params[k] = v.split(",") }
 
   expect(actual_params).to eq expected_params
 end
 
-Then /^show me the page$/ do
+Then(/^show me the page$/) do
   save_and_open_page
 end

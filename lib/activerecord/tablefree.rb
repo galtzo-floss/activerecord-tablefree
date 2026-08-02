@@ -1,11 +1,13 @@
-require 'cgi'
-require 'active_record'
+require "version_gem"
 
-require 'activerecord/tablefree/version'
-require 'activerecord/tablefree/cast_type'
-require 'activerecord/tablefree/schema_cache'
-require 'activerecord/tablefree/connection'
-require 'activerecord/tablefree/transaction'
+require "cgi"
+require "active_record"
+
+require "activerecord/tablefree/version"
+require "activerecord/tablefree/cast_type"
+require "activerecord/tablefree/schema_cache"
+require "activerecord/tablefree/connection"
+require "activerecord/tablefree/transaction"
 
 module ActiveRecord
   # = ActiveRecord::Tablefree
@@ -45,7 +47,7 @@ module ActiveRecord
     module ActsMethods #:nodoc:
       # A model that needs to be tablefree will call this method to indicate
       # it.
-      def has_no_table(options = { database: :fail_fast })
+      def has_no_table(options = {database: :fail_fast})
         raise ArgumentError, "Invalid database option '#{options[:database]}'" unless %i[fail_fast pretend_success].member? options[:database]
         # keep our options handy
         class_attribute :tablefree_options
@@ -55,8 +57,8 @@ module ActiveRecord
         }
 
         # extend
-        extend  ActiveRecord::Tablefree::SingletonMethods
-        extend  ActiveRecord::Tablefree::ClassMethods
+        extend ActiveRecord::Tablefree::SingletonMethods
+        extend ActiveRecord::Tablefree::ClassMethods
 
         # include
         include ActiveRecord::Tablefree::InstanceMethods
@@ -88,10 +90,14 @@ module ActiveRecord
       # Register a new column.
       def column(name, sql_type = nil, default = nil, null = true, cast_class_params = nil)
         cast_class = if sql_type.is_a?(Class) && sql_type < ActiveModel::Type::Value
-                       sql_type
-                     else
-                       "ActiveRecord::Type::#{sql_type.to_s.camelize}".constantize rescue nil
-                     end
+          sql_type
+        else
+          begin
+            "ActiveRecord::Type::#{sql_type.to_s.camelize}".constantize
+          rescue
+            nil
+          end
+        end
         raise InvalidColumnType, "sql_type is #{sql_type} (#{sql_type.class}), which is not supported" unless cast_class.respond_to?(:new)
         cast_type = cast_class.new(*cast_class_params)
         tablefree_options[:columns_hash][name.to_s] = ActiveRecord::ConnectionAdapters::Column.new(name.to_s, default, cast_type, null)
@@ -133,7 +139,7 @@ module ActiveRecord
           end
         end
       else
-        raise Unsupported, 'Unsupported ActiveRecord version'
+        raise Unsupported, "Unsupported ActiveRecord version"
       end
 
       def transaction
@@ -160,9 +166,9 @@ module ActiveRecord
         if query_string.blank?
           new
         else
-          params = query_string.split('&').collect do |chunk|
+          params = query_string.split("&").collect do |chunk|
             next if chunk.empty?
-            key, value = chunk.split('=', 2)
+            key, value = chunk.split("=", 2)
             next if key.empty?
             value = value.nil? ? nil : CGI.unescape(value)
             [CGI.unescape(key), value]
@@ -179,11 +185,11 @@ module ActiveRecord
 
     module InstanceMethods
       def to_query_string(prefix = nil)
-        attributes.to_a.collect { |(name, value)| escaped_var_name(name, prefix) + '=' + escape_for_url(value) if value }.compact.join('&')
+        attributes.to_a.collect { |(name, value)| escaped_var_name(name, prefix) + "=" + escape_for_url(value) if value }.compact.join("&")
       end
 
       def quote_value(_value, _column = nil)
-        ''
+        ""
       end
 
       %w[create create_record _create_record update update_record _update_record].each do |method_name|
@@ -216,7 +222,8 @@ module ActiveRecord
         end
       end
 
-      def add_to_transaction; end
+      def add_to_transaction
+      end
 
       private
 
@@ -226,16 +233,20 @@ module ActiveRecord
 
       def escape_for_url(value)
         case value
-        when true then '1'
-        when false then '0'
-        when nil then ''
+        when true then "1"
+        when false then "0"
+        when nil then ""
         else CGI.escape(value.to_s)
         end
       rescue
-        ''
+        ""
       end
     end
   end
 end
 
 ActiveRecord::Base.send(:include, ActiveRecord::Tablefree)
+
+ActiveRecord::Tablefree::ActsMethods::Version.class_eval do
+  extend VersionGem::Basic
+end

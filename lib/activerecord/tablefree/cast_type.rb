@@ -32,7 +32,7 @@ module ActiveRecord::Tablefree
 
     def force_equality?(value)
       case value
-      when ::Array, ::Range then
+      when ::Array, ::Range
         true
       else
         false

@@ -1,50 +1,178 @@
-# -*- ruby -*-
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+# frozen_string_literal: true
 
-require 'activerecord/tablefree/version'
+# kettle-jem:freeze
+# To retain chunks of comments & code during kettle-jem templating:
+# Wrap custom sections with freeze markers (e.g., as above and below this comment chunk).
+# kettle-jem will then preserve content between those markers across template runs.
+# kettle-jem:unfreeze
 
-Gem::Specification.new do |gem|
-  gem.name          = 'activerecord-tablefree'
-  gem.version       = ActiveRecord::Tablefree::VERSION
-  gem.platform      = Gem::Platform::RUBY
-  gem.authors       = ['Jarl Friis', 'Kenneth Kalmer', 'Michal Zima', 'Peter Boling']
-  gem.email         = ['jarl@softace.dk', 'peter.boling@gmail.com']
-  gem.homepage      = 'https://github.com/boltthreads/activerecord-tablefree'
-  gem.summary       = 'A library for implementing tablefree ActiveRecord models in Rails 5+'
-  gem.description   = 'ActiveRecord Tablefree Models provides a simple mixin for creating models that are not bound to the database. This approach is useful for taking advantage of the features of ActiveRecord such as validation, relationships, nested_attributes, etc.'
-  gem.license       = 'MIT'
+gem_version =
+  if Gem.ruby_version >= Gem::Version.new("3.1")
+    # Loading Version into an anonymous module allows version.rb to get code coverage from SimpleCov!
+    # See: https://github.com/simplecov-ruby/simplecov/issues/557#issuecomment-2630782358
+    # See: https://github.com/panorama-ed/memo_wise/pull/397
+    Module.new.tap { |mod| Kernel.load("#{__dir__}/lib/activerecord/tablefree/version.rb", mod) }::ActiveRecord::Tablefree::ActsMethods::Version::VERSION
+  else
+    require_relative "lib/activerecord/tablefree/version"
+    ActiveRecord::Tablefree::ActsMethods::Version::VERSION
+  end
 
-  gem.files         = `git ls-files`.split($OUTPUT_RECORD_SEPARATOR)
-  gem.executables   = gem.files.grep(%r{^bin/}).map { |f| File.basename(f) }
-  gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
+Gem::Specification.new do |spec|
+  spec.name = "activerecord-tablefree"
+  spec.version = gem_version
+  spec.authors = ["Jarl Friis", "Kenneth Kalmer", "Michal Zima", "Peter Boling"]
+  spec.email = ["floss@galtzo.com"]
 
-  gem.require_paths = ['lib']
+  spec.summary = "💎 A library for implementing tablefree ActiveRecord models in Rails 5+"
+  spec.description = "💎 ActiveRecord Tablefree Models provides a simple mixin for creating models that are not bound to the database. This approach is useful for taking advantage of the features of ActiveRecord such as validation, relationships, nested_attributes, etc."
+  spec.homepage = "https://github.com/galtzo-floss/activerecord-tablefree"
+  spec.licenses = ["MIT"]
+  spec.required_ruby_version = ">= 2.2.2"
 
-  gem.required_ruby_version = '>= 2.2.2' # Requirement for Rails 5
+  # Linux distros often package gems and securely certify them independent
+  #   of the official RubyGem certification process. Allowed via ENV["SKIP_GEM_SIGNING"]
+  # Ref: https://gitlab.com/ruby-oauth/version_gem/-/issues/3
+  # Hence, only enable signing if `SKIP_GEM_SIGNING` is not set in ENV.
+  # See CONTRIBUTING.md
+  unless ENV.include?("SKIP_GEM_SIGNING")
+    user_cert = "certs/#{ENV.fetch("GEM_CERT_USER", ENV["USER"])}.pem"
+    cert_file_path = File.join(__dir__, user_cert)
+    cert_chain = cert_file_path.split(",")
+    cert_chain.select! { |fp| File.exist?(fp) }
+    if cert_file_path && cert_chain.any?
+      spec.cert_chain = cert_chain
+      if $PROGRAM_NAME.end_with?("gem") && ARGV[0] == "build"
+        spec.signing_key = File.join(Gem.user_home, ".ssh", "gem-private_key.pem")
+      end
+    end
+  end
 
-  gem.add_runtime_dependency('activerecord', '>= 5', '< 9')
+  spec.metadata["homepage_uri"] = "https://activerecord-tablefree.galtzo.com"
+  spec.metadata["source_code_uri"] = "#{spec.homepage}/tree/v#{spec.version}"
+  spec.metadata["changelog_uri"] = "#{spec.homepage}/blob/v#{spec.version}/CHANGELOG.md"
+  spec.metadata["bug_tracker_uri"] = "#{spec.homepage}/issues"
+  spec.metadata["documentation_uri"] = "https://www.rubydoc.info/gems/#{spec.name}/#{spec.version}"
+  spec.metadata["funding_uri"] = "https://github.com/sponsors/pboling"
+  spec.metadata["wiki_uri"] = "#{spec.homepage}/wiki"
+  spec.metadata["news_uri"] = "https://www.railsbling.com/tags/#{spec.name}"
+  spec.metadata["discord_uri"] = "https://discord.gg/3qme4XHNKN"
+  spec.metadata["mailing_list_uri"] = "https://www.rubyforum.org/tag/galtzo-floss"
+  spec.metadata["rubygems_mfa_required"] = "true"
 
-  gem.add_development_dependency('bundler', '>= 1.17')
-  gem.add_development_dependency('rake', '~> 13', '> 0')
+  gemspec_root = __dir__
+  relative_package_path = lambda do |path|
+    prefix = "#{gemspec_root}/"
+    (path[0, prefix.length] == prefix) ? path[prefix.length..-1] : path
+  end
+  enumerate_package_glob = lambda do |glob|
+    files = []
+    Dir.glob(glob, File::FNM_DOTMATCH).each do |path|
+      next unless File.file?(path) && ![".", ".."].include?(File.basename(path))
 
-  #  gem.add_development_dependency("rails") # This is in the appraisal gemfiles
-  gem.add_development_dependency('sqlite3', '~> 1')
+      files << relative_package_path.call(path)
+    end
+    files
+  end
+  enumerate_package_files = lambda do |root|
+    enumerate_package_glob.call(File.join(gemspec_root, root, "**", "*"))
+  end
+  package_metadata_files = %w[
+    CHANGELOG.md
+    LICENSE.md
+    README.md
+    sig/activerecord/tablefree.rbs
+  ].select { |path| File.exist?(File.join(gemspec_root, path)) }
 
-  gem.add_development_dependency('appraisal', '~> 2')
-  gem.add_development_dependency('aruba', '~> 2')
-  gem.add_development_dependency('cucumber', '~> 9')
-  gem.add_development_dependency('rspec', '~> 3')
-  gem.add_development_dependency('rspec-collection_matchers', '~> 1')
+  # Specify which files are part of the released package.
+  spec.files = [
+    # Root package metadata
+    *package_metadata_files,
+    # Code / tasks / data (NOTE: exe/ is specified via spec.bindir and spec.executables below)
+    *enumerate_package_files.call("lib"),
+    # Executables and executable support scripts
+    *enumerate_package_files.call("exe")
+  ]
+  spec.rdoc_options += [
+    "--title",
+    "#{spec.name} - #{spec.summary}",
+    "--main",
+    "README.md",
+    "--exclude",
+    "^sig/",
+    "--line-numbers",
+    "--inline-source",
+    "--quiet"
+  ]
+  spec.bindir = "exe"
+  # Listed files are the relative paths from bindir above.
+  spec.executables = spec.files.grep(%r{^bin/}).map { |f| File.basename(f) }
+  spec.require_paths = ["lib"]
 
-  gem.add_development_dependency('capybara', '~> 3')
-  gem.add_development_dependency('coveralls', '~> 0')
-  gem.add_development_dependency('gem-release', '~> 2')
-  gem.add_development_dependency('listen', '~> 3')
-  gem.add_development_dependency('nokogiri', '~> 1.0')
-  gem.add_development_dependency('rails', '~> 5')
-  gem.add_development_dependency('wwtd', '~> 1')
+  # Utilities
+  spec.add_runtime_dependency("activerecord", ">= 5", "< 9")
+  spec.add_dependency("version_gem", "~> 1.1", ">= 1.1.15")              # ruby >= 2.2.0
 
-  #  gem.add_development_dependency('launchy', '~> 2.1')
-  #  gem.add_development_dependency('debugger')
+  # NOTE: It is preferable to list development dependencies in the gemspec due to increased
+  #       visibility and discoverability.
+  #       However, development dependencies in gemspec will install on
+  #       all versions of Ruby that will run in CI.
+  #       This gem, and its gemspec runtime dependencies, will install on Ruby down to 2.2.2.
+  #       This gem, and its gemspec development dependencies, will install on Ruby down to 2.4.
+  #       Thus, dev dependencies in gemspec must have
+  #
+  #       required_ruby_version ">= 2.4" (or lower)
+  #
+  #       Development dependencies that require strictly newer Ruby versions should be in a "gemfile",
+  #       and preferably a modular one (see gemfiles/modular/*.gemfile).
+
+  # Dev, Test, & Release Tasks
+  spec.add_development_dependency("kettle-dev", "~> 2.5", ">= 2.5.16")             # ruby >= 2.4
+
+  # Security
+  spec.add_development_dependency("bundler-audit", "~> 0.9.3")                      # ruby >= 2.0.0
+
+  # Tasks
+  spec.add_development_dependency("rake", "~> 13.0")                                # ruby >= 2.2.0
+
+  # Debugging
+  spec.add_development_dependency("require_bench", "~> 1.0", ">= 1.0.4")            # ruby >= 2.2.0
+
+  # Testing
+  # Loads version files in anonymous namespaces for coverage without constant redefinition warnings.
+  spec.add_development_dependency("anonymous_loader", "~> 0.1", ">= 0.1.3")         # ruby >= 2.2.0
+  spec.add_development_dependency("appraisal2", "~> 3.2", ">= 3.2.0")               # ruby >= 1.8.7, for testing against multiple versions of dependencies
+  spec.add_development_dependency("kettle-test", "~> 2.0", ">= 2.0.18")            # ruby >= 2.4
+  spec.add_development_dependency("turbo_tests2", "~> 3.2", ">= 3.2.4")           # ruby >= 2.4.0, default kettle-test runner
+
+  # Releasing
+  spec.add_development_dependency("ruby-progressbar", "~> 1.13")                    # ruby >= 0
+  spec.add_development_dependency("stone_checksums", "~> 1.0", ">= 1.0.8")          # ruby >= 2.2.0
+
+  # Development tasks
+  # The cake is a lie. erb v2.2, the oldest release, was never compatible with Ruby 2.3.
+  # This means we have no choice but to use the erb that shipped with Ruby 2.3
+  # /opt/hostedtoolcache/Ruby/2.3.8/x64/lib/ruby/gems/2.3.0/gems/erb-2.2.2/lib/erb.rb:670:in `prepare_trim_mode': undefined method `match?' for "-":String (NoMethodError)
+  # spec.add_development_dependency("erb", ">= 2.2")                                  # ruby >= 2.3.0, not SemVer, old rubies get dropped in a patch.
+  spec.add_development_dependency("gitmoji-regex", "~> 2.0", ">= 2.0.11")            # ruby >= 2.4
+
+  # HTTP recording for deterministic specs
+  # In Ruby 3.5 (HEAD) the CGI library has been pared down, so we also need to depend on gem "cgi" for ruby@head
+  # This is done in the "head" appraisal.
+  # See: https://github.com/vcr/vcr/issues/1057
+  # spec.add_development_dependency("vcr", ">= 4")                        # 6.0 claims to support ruby >= 2.3, but fails on ruby 2.4
+  # spec.add_development_dependency("webmock", ">= 3")                    # Last version to support ruby >= 2.3
+  spec.add_development_dependency("appraisal", "~> 2")
+  spec.add_development_dependency("aruba", "~> 2")
+  spec.add_development_dependency("bundler", ">= 1.17")
+  spec.add_development_dependency("capybara", "~> 3")
+  spec.add_development_dependency("coveralls", "~> 0")
+  spec.add_development_dependency("cucumber", "~> 9")
+  spec.add_development_dependency("gem-release", "~> 2")
+  spec.add_development_dependency("listen", "~> 3")
+  spec.add_development_dependency("nokogiri", "~> 1.0")
+  spec.add_development_dependency("rails", "~> 5")
+  spec.add_development_dependency("rspec", "~> 3")
+  spec.add_development_dependency("rspec-collection_matchers", "~> 1")
+  spec.add_development_dependency("sqlite3", "~> 1")
+  spec.add_development_dependency("wwtd", "~> 1")
 end
