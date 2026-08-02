@@ -45,7 +45,7 @@ end
 ActiveRecord::Base.logger = Logger.new(STDERR)
 ActiveRecord::Base.logger.level = Logger::Severity::UNKNOWN
 
-shared_examples_for "an active record instance" do
+RSpec.shared_examples "an active record instance" do
   it { is_expected.to respond_to :id }
   it { is_expected.to respond_to :id= }
   it { is_expected.to respond_to :name }
@@ -65,7 +65,7 @@ shared_examples_for "an active record instance" do
   end
 end
 
-shared_examples_for "a nested active record" do
+RSpec.shared_examples "a nested active record" do
   describe "conllection#build" do
     specify do
       expect(subject.arm_rests.build(name: "nice arm_rest")).to be_an_instance_of(ArmRest)
@@ -110,7 +110,7 @@ shared_examples_for "a nested active record" do
   end
 end
 
-shared_examples_for "a tablefree model with fail_fast" do
+RSpec.shared_examples "a tablefree model with fail_fast" do
   case ActiveRecord::VERSION::MAJOR
   when 3
     describe "#all" do
@@ -150,7 +150,7 @@ shared_examples_for "a tablefree model with fail_fast" do
   end
 end
 
-shared_examples_for "a tablefree model instance with fail_fast" do
+RSpec.shared_examples "a tablefree model instance with fail_fast" do
   it_behaves_like "an active record instance"
   describe "#save" do
     it "raises ActiveRecord::Tablefree::NoDatabase" do
@@ -177,7 +177,7 @@ shared_examples_for "a tablefree model instance with fail_fast" do
   end
 end
 
-describe "Tablefree model with fail_fast" do
+RSpec.describe "Tablefree model with fail_fast" do
   subject { Chair }
 
   before(:context) { make_tablefree_model(nil, nil) }
@@ -198,7 +198,7 @@ describe "Tablefree model with fail_fast" do
   end
 end
 
-describe "Tablefree nested with fail_fast" do
+RSpec.describe "Tablefree nested with fail_fast" do
   subject { Chair }
 
   before(:context) { make_tablefree_model(nil, true) }
@@ -259,7 +259,7 @@ end
 ##
 ## Succeeding database
 ##
-shared_examples_for "a model with succeeding database" do
+RSpec.shared_examples "a model with succeeding database" do
   describe "#all" do
     specify { expect(subject.all).to be_empty }
   end
@@ -277,7 +277,7 @@ shared_examples_for "a model with succeeding database" do
   end
 end
 
-shared_examples_for "an instance with succeeding database" do
+RSpec.shared_examples "an instance with succeeding database" do
   it_behaves_like "an active record instance"
 
   describe "#save" do
@@ -299,7 +299,7 @@ shared_examples_for "an instance with succeeding database" do
   end
 end
 
-describe "ActiveRecord with real database" do
+RSpec.describe "ActiveRecord with real database" do
   subject { Chair }
 
   before(:context) do
@@ -367,7 +367,7 @@ describe "ActiveRecord with real database" do
   end
 end
 
-describe "Tablefree model with succeeding database" do
+RSpec.describe "Tablefree model with succeeding database" do
   subject { Chair }
 
   before(:context) { make_tablefree_model(:pretend_success, nil) }
@@ -381,7 +381,7 @@ describe "Tablefree model with succeeding database" do
   end
 end
 
-describe "Tablefree model can access connection" do
+RSpec.describe "Tablefree model can access connection" do
   before(:context) { make_tablefree_model(:pretend_success, nil) }
   after(:context) { remove_models }
 
@@ -392,7 +392,7 @@ describe "Tablefree model can access connection" do
   end
 end
 
-describe "Tablefree model can access connection transaction" do
+RSpec.describe "Tablefree model can access connection transaction" do
   before(:context) { make_tablefree_model(:pretend_success, nil) }
   after(:context) { remove_models }
 
@@ -403,7 +403,7 @@ describe "Tablefree model can access connection transaction" do
   end
 end
 
-describe "Bad column type" do
+RSpec.describe "Bad column type" do
   describe "association" do
     subject {
       -> {
