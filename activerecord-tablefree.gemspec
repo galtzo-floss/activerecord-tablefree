@@ -11,7 +11,7 @@ gem_version =
     # Loading Version into an anonymous module allows version.rb to get code coverage from SimpleCov!
     # See: https://github.com/simplecov-ruby/simplecov/issues/557#issuecomment-2630782358
     # See: https://github.com/panorama-ed/memo_wise/pull/397
-      Module.new.tap { |mod| Kernel.load("#{__dir__}/lib/activerecord/tablefree/version.rb", mod) }::ActiveRecord::Tablefree::VERSION
+    Module.new.tap { |mod| Kernel.load("#{__dir__}/lib/activerecord/tablefree/version.rb", mod) }::ActiveRecord::Tablefree::VERSION
   else
     require_relative "lib/activerecord/tablefree/version"
     ActiveRecord::Tablefree::VERSION
