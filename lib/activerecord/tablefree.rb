@@ -250,7 +250,3 @@ ActiveRecord::Base.send(:include, ActiveRecord::Tablefree)
 ActiveRecord::Tablefree.class_eval do
   extend VersionGem::Basic
 end
-
-ActiveRecord::Tablefree::ActsMethods::Version.class_eval do
-  extend VersionGem::Basic
-end
