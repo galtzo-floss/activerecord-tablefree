@@ -1,4 +1,1 @@
-# <<kettle-jem:generated>> do not edit below this line
-gem "aruba", "~> 2" # ruby >= 3.0.0
-gem "cucumber", "~> 9" # ruby >= 2.7
 # <</kettle-jem:generated>>

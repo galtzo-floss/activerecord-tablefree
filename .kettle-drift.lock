@@ -1,0 +1,29 @@
+{
+  "action: remove_modular_gem\nreason: \"The gemspec owns the project's test dependency.\"": [
+    {
+      "file": ".structuredmerge/kettle-jem.yml",
+      "lines": [
+        97,
+        102
+      ]
+    }
+  ],
+  "direct: activerecord-tablefree.gemspec\nmodular: gemfiles/modular/shunted.gemfile": [
+    {
+      "file": ".structuredmerge/kettle-jem.yml",
+      "lines": [
+        95,
+        100
+      ]
+    }
+  ],
+  "modular: gemfiles/modular/shunted.gemfile\naction: remove_modular_gem": [
+    {
+      "file": ".structuredmerge/kettle-jem.yml",
+      "lines": [
+        96,
+        101
+      ]
+    }
+  ]
+}

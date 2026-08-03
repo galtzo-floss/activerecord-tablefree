@@ -2,7 +2,14 @@
 
 module ActiveRecord
   module Tablefree
-    # Current gem version.
-    VERSION = "3.1.8"
+    module ActsMethods
+      # Version namespace for this gem.
+      module Version
+        # Current gem version.
+        VERSION = "3.1.8"
+      end
+      # Current gem version exposed at the traditional constant location.
+      VERSION = Version::VERSION # Traditional Constant Location
+    end
   end
 end
