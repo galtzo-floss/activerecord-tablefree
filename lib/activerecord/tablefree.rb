@@ -119,6 +119,12 @@ module ActiveRecord
         end
       end
 
+      def all(*_args)
+        return [] if tablefree_options[:database] == :pretend_success
+
+        super
+      end
+
       def destroy_all(*_args)
         case tablefree_options[:database]
         when :pretend_success

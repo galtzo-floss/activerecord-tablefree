@@ -23,13 +23,15 @@ end
 require "kettle/test/rspec"
 # `kettle/test/rspec` installs harness helpers documented in spec/README.md.
 require "rspec/collection_matchers"
-require "debug"
+require "debug" if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new("2.7")
 require "sqlite3"
 require "active_record"
 require "logger"
 
-require "coveralls"
-Coveralls.wear!
+if defined?(Kettle::Soup::Cover::DO_COV) && Kettle::Soup::Cover::DO_COV
+  require "coveralls"
+  Coveralls.wear!
+end
 
 require "activerecord/tablefree"
 RSpec.configure do |config|

@@ -269,7 +269,10 @@ RSpec.shared_examples "a model with succeeding database" do
   end
 
   describe "#destroy" do
-    specify { expect(subject.destroy(1)).to be_an_instance_of(subject) }
+    specify do
+      record = subject.create(name: "Jarl")
+      expect(subject.destroy(record.id || 1)).to be_an_instance_of(subject)
+    end
   end
 
   describe "#destroy_all" do
@@ -301,6 +304,10 @@ end
 
 RSpec.describe "ActiveRecord with real database" do
   subject { Chair }
+
+  # The examples are randomized; each database example must start with an
+  # empty table instead of relying on another example having run first.
+  before { Chair.delete_all }
 
   before(:context) do
     FileUtils.mkdir_p "tmp"
