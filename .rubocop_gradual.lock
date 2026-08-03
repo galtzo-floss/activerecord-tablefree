@@ -8,9 +8,9 @@
   "features/support/rails.rb:1037920026": [
     [4, 24, 64, "Style/HashConversion: Prefer `ary.to_h` to `Hash[ary]`.", 1877744839]
   ],
-  "lib/activerecord/tablefree.rb:4250978782": [
-    [57, 9, 34, "ThreadSafety/ClassAndModuleAttributes: Avoid mutating class and module attributes.", 3448620919],
-    [192, 9, 12, "ThreadSafety/ClassInstanceVariable: Avoid class instance variables.", 3894663404]
+  "lib/activerecord/tablefree.rb:3752765902": [
+    [52, 9, 34, "ThreadSafety/ClassAndModuleAttributes: Avoid mutating class and module attributes.", 3448620919],
+    [187, 9, 12, "ThreadSafety/ClassInstanceVariable: Avoid class instance variables.", 3894663404]
   ],
   "spec/activerecord/tablefree/version_spec.rb:2668231526": [
     [2, 1, 38, "RSpec/SpecFilePathFormat: Spec path should end with `active_record/tablefree*_spec.rb`.", 637189594]
