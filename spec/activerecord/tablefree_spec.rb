@@ -310,6 +310,10 @@ RSpec.describe "ActiveRecord with real database" do
   before { Chair.delete_all }
 
   before(:context) do
+    skip_for(
+      versions: Gem::Version.new("4.0.0")..Gem::Version.new("999.0.0"),
+      reason: "ActiveRecord 5.2 does not support Ruby 4 keyword argument semantics"
+    )
     FileUtils.mkdir_p "tmp"
     ActiveRecord::Base.establish_connection(adapter: "sqlite3", database: "tmp/test.db")
     ActiveRecord::Base.connection.execute("drop table if exists chairs")

@@ -22,6 +22,7 @@ end
 # External RSpec & related config
 require "kettle/test/rspec"
 # `kettle/test/rspec` installs harness helpers documented in spec/README.md.
+require "rspec/pending_for"
 require "rspec/collection_matchers"
 require "debug" if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new("2.7")
 require "sqlite3"

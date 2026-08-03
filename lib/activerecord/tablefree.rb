@@ -1,3 +1,10 @@
+require "version_gem"
+require_relative "tablefree/version"
+
+ActiveRecord::Tablefree::Version.class_eval do
+  extend VersionGem::Basic
+end
+
 require "cgi"
 require "active_record"
 
