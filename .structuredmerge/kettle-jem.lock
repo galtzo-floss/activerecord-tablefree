@@ -1124,7 +1124,7 @@ files:
   sig/activerecord/tablefree.rbs:
     recipe: template_source_application_sig_activerecord_tablefree_rbs
     action: write
-    dest_sha256: 9bfb9608abacf3d791e85ecaa0bc74de84fae957e0e93335c179cf2d11bfbe7a
+    dest_sha256: ebc1d129da580bb696d2966f737cd3dbb8c68edabc6c1c1d311bf34529cf59d6
     input_fingerprint: 0e459d82268f8a38e74bf7a0871fcd7ea1aa216a05302beaf7a1a58f077ac1f3
     template_sources:
     - sig/gem.rbs.example
