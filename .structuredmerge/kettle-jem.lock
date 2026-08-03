@@ -73,7 +73,7 @@ template_state:
     ".rubocop.example": 591e4b45430e85b0dd460cc11c70650912fa2734988420b934109d06a749344f
     ".rubocop.yml.example": c66f3a03fbdba089d7624de1174cc197e0eb25c3e67b8f1f19e32da3bde8db91
     ".rubocop_rspec.yml.example": 288ad75e7eb14d87d80fafe6f7272217be5c57547536ee56c780a7d10ac7ec74
-    ".simplecov.example": ffc76492effe905cc65797389fc8050fda136652ac078a80303cd084b349ef28
+    ".simplecov.example": 222f2e6ce8cf089c70a21f0f5e5423d4bd59a96fdb2ce7754b0fb3d6f430c229
     ".structuredmerge/git-drivers.toml.example": 9d241a44c9edffcdbd3da018fa188a238089c3d1635040924df594a6929a4f97
     ".structuredmerge/kettle-jem.yml.example": d431accf9ae516d28bb234614ef4596229b559d1e7c41ed4ad3a18085224a0f4
     ".yard-lint.yml.example": 90def46867c9436b4e177c47d91fc8165f4602e335715aecc39f5587ae20b55b
@@ -607,8 +607,8 @@ files:
   ".simplecov":
     recipe: template_source_application_simplecov
     action: write
-    dest_sha256: 2268003f11de26fd79605cccd76fd3b2f9e1a9882d2b2efbd2d645a2fa242ea2
-    input_fingerprint: 77ab83c9abd584aab3dd43e6d2553666f41afea49d8736cb11a9af08a8797c57
+    dest_sha256: 91748025dd952b8b818bf40af973e68beff7246b29b23fdb470f49c322196638
+    input_fingerprint: 2c7094cc4390600f917283a8d15f032ac10b30f30d3f226a1462af06eaa53363
     template_sources:
     - ".simplecov.example"
   ".structuredmerge/git-drivers.toml":
@@ -670,7 +670,7 @@ files:
   CHANGELOG.md:
     recipe: template_source_application_CHANGELOG_md
     action: write
-    dest_sha256: 63007e1cd36c8adeda36ee45eb4ad6ee19fe539da6acb08fcceb9bb77596399e
+    dest_sha256: 5325f2915fc3e9eef70a8f9c07794845542a3168e2b3467a4c8dd4f6daf02c18
     input_fingerprint: c76da403da80b1183e1ec9cc91352428bae1fae57be9313e85be34c1b52fd931
     template_sources:
     - CHANGELOG.md.example
@@ -1138,7 +1138,7 @@ files:
   spec/spec_helper.rb:
     recipe: template_source_application_spec_spec_helper_rb
     action: write
-    dest_sha256: 4029aacc09fb44f8c1abb0572e86501e9e312714107ca35c252661665773996f
+    dest_sha256: 8c51d38cf7f21822c3397eba37a7f4e1e025ab8d6c027a27a6ebac286d434cac
     input_fingerprint: b90b26bed15963ce3396f5bbae52d7fb22c476859a4c3f40402c8a7cc6f88088
     template_sources:
     - spec/spec_helper.rb.example
