@@ -11,10 +11,10 @@ gem_version =
     # Loading Version into an anonymous module allows version.rb to get code coverage from SimpleCov!
     # See: https://github.com/simplecov-ruby/simplecov/issues/557#issuecomment-2630782358
     # See: https://github.com/panorama-ed/memo_wise/pull/397
-    Module.new.tap { |mod| Kernel.load("#{__dir__}/lib/activerecord/tablefree/version.rb", mod) }::ActiveRecord::Tablefree::VERSION
+    Module.new.tap { |mod| Kernel.load("#{__dir__}/lib/activerecord/tablefree/version.rb", mod) }::ActiveRecord::Tablefree::Version::VERSION
   else
     require_relative "lib/activerecord/tablefree/version"
-    ActiveRecord::Tablefree::VERSION
+    ActiveRecord::Tablefree::Version::VERSION
   end
 
 Gem::Specification.new do |spec|
@@ -166,14 +166,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency("bundler", ">= 1.17")
   spec.add_development_dependency("capybara", "~> 3")
   spec.add_development_dependency("coveralls", "~> 0")
-  # Cucumber 9 requires Ruby >= 2.7, while this gem's legacy appraisal lane
-  # still verifies Ruby 2.6. Keep the development tool compatible with the
-  # interpreter that is resolving the appraisal.
-  if Gem.ruby_version < Gem::Version.new("2.7")
-    spec.add_development_dependency("cucumber", "~> 7")
-  else
-    spec.add_development_dependency("cucumber", "~> 9")
-  end
+  spec.add_development_dependency("cucumber", "~> 7")
   spec.add_development_dependency("gem-release", "~> 2")
   spec.add_development_dependency("listen", "~> 3")
   spec.add_development_dependency("nokogiri", "~> 1.0")
