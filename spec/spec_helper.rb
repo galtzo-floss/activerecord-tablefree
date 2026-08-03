@@ -45,4 +45,11 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  config.before(:context, :active_record_5_2_compat) do
+    skip_for(
+      versions: Gem::Version.new("4.0.0")..Gem::Version.new("999.0.0"),
+      reason: "ActiveRecord 5.2 does not support Ruby 4 keyword argument semantics"
+    )
+  end
 end
