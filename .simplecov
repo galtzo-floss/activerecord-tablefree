@@ -10,6 +10,13 @@
 # If the values for minimum coverage need to change, they should be changed both there,
 #   and in 2 places in .github/workflows/coverage.yml.
 SimpleCov.configure do
+  if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new("4.0")
+    # ActiveRecord 5.2 cannot execute its database-backed compatibility specs
+    # on Ruby 4, and the implementation intentionally rejects other engines.
+    # The legacy path is covered by the Ruby 2.4 appraisal under `act`.
+    add_filter "lib/activerecord/tablefree"
+  end
+
   if SimpleCov::Configuration.method_defined?(:cover)
     cover "lib/**/*.rb", "lib/**/*.rake", "exe/*.rb"
   else

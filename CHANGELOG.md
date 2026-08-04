@@ -95,6 +95,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Restore legacy Ruby appraisal dependency compatibility.
 
+- Make Ruby 4 coverage explicit for the legacy ActiveRecord 5 compatibility path.
+
 ### Security
 
 [Unreleased]: https://gitlab.com/galtzo-floss/activerecord-tablefree/-/compare/HEAD
