@@ -1,5 +1,5 @@
 require "anonymous_loader"
-require "activerecord-tablefree"
+require "activerecord/tablefree"
 RSpec.describe ActiveRecord::Tablefree do
   it "has a version number" do
     expect(ActiveRecord::Tablefree::VERSION).not_to be_nil
