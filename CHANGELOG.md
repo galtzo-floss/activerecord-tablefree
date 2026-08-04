@@ -93,6 +93,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Restore the public version namespace and document the ActiveRecord 5.2 Ruby 4 test boundary
 
+- Restore legacy Ruby appraisal dependency compatibility.
+
 ### Security
 
 [Unreleased]: https://gitlab.com/galtzo-floss/activerecord-tablefree/-/compare/HEAD
