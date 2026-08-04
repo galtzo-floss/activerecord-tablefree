@@ -11,5 +11,11 @@ module ActiveRecord
       VERSION: String
     end
     VERSION: String
+    module NoDatabase
+      module Version
+        VERSION: String
+      end
+      VERSION: String
+    end
   end
 end
