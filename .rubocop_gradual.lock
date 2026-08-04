@@ -8,6 +8,9 @@
   "features/support/rails.rb:1037920026": [
     [4, 24, 64, "Style/HashConversion: Prefer `ary.to_h` to `Hash[ary]`.", 1877744839]
   ],
+  "gemfiles/modular/templating.gemfile:3018447732": [
+    [14, 3, 47, "Bundler/DuplicatedGem: Gem `tree_sitter_language_pack` requirements already given on line 10 of the Gemfile.", 3843603197]
+  ],
   "lib/activerecord/tablefree.rb:3752765902": [
     [52, 9, 34, "ThreadSafety/ClassAndModuleAttributes: Avoid mutating class and module attributes.", 3448620919],
     [187, 9, 12, "ThreadSafety/ClassInstanceVariable: Avoid class instance variables.", 3894663404]
