@@ -24,7 +24,7 @@ require "kettle/test/rspec"
 # `kettle/test/rspec` installs harness helpers documented in spec/README.md.
 require "rspec/pending_for"
 require "rspec/collection_matchers"
-require "debug" if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new("2.7")
+require "debug" if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new("2.7") && ENV["CI"].nil? && ENV.fetch("DEBUG", "false").casecmp("true").zero?
 require "sqlite3"
 require "active_record"
 require "logger"
