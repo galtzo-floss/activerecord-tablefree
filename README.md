@@ -21,6 +21,11 @@ I've summarized my thoughts in [this blog post](https://dev.to/galtzo/hostile-ta
 
 ## 🌻 Synopsis <a href="https://discord.gg/3qme4XHNKN"><img alt="Galtzo FLOSS Logo by Aboling0, CC BY-SA 4.0" src="https://logos.galtzo.com/assets/images/galtzo-floss/avatar-128px.svg" width="8%" align="right"/></a> <a href="https://ruby-toolbox.com"><img alt="ruby-lang Logo, Yukihiro Matsumoto, Ruby Visual Identity Team, CC BY-SA 2.5" src="https://logos.galtzo.com/assets/images/ruby-lang/avatar-128px.svg" width="8%" align="right"/></a>
 
+ActiveRecord::Tablefree provides ActiveRecord models that are not backed by a
+database table. It preserves useful ActiveRecord behavior such as attributes,
+validations, relationships, and nested attributes for transient form or service
+objects.
+
 ## 💡 Info you can shake a stick at
 
 | Tokens to Remember | [![Gem name][⛳️name-img]][⛳️gem-name] [![Gem namespace][⛳️namespace-img]][⛳️gem-namespace] |
@@ -118,6 +123,11 @@ gem install activerecord-tablefree
 ```
 
 ## ⚙️ Configuration
+
+Include `ActiveRecord::Tablefree` in the model and call `has_no_table`. Declare
+the virtual columns with `column`; by default database operations fail fast so
+accidental persistence is visible. Use `database: :pretend_success` only when
+the application deliberately needs no-op persistence behavior.
 
 ## 🔧 Basic Usage
 -----
