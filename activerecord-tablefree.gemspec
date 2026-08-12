@@ -140,9 +140,9 @@ Gem::Specification.new do |spec|
   # Testing
   # Loads version files in anonymous namespaces for coverage without constant redefinition warnings.
   spec.add_development_dependency("anonymous_loader", "~> 0.1", ">= 0.1.3")         # ruby >= 2.2.0
-  spec.add_development_dependency("appraisal2", "~> 3.2", ">= 3.2.0")               # ruby >= 1.8.7, for testing against multiple versions of dependencies
+  spec.add_development_dependency("appraisal2", "~> 3.2", ">= 3.2.2")               # ruby >= 1.8.7, for testing against multiple versions of dependencies
   spec.add_development_dependency("kettle-test", "~> 2.0", ">= 2.0.19")            # ruby >= 2.4
-  spec.add_development_dependency("turbo_tests2", "~> 3.2", ">= 3.2.4")           # ruby >= 2.4.0, default kettle-test runner
+  spec.add_development_dependency("turbo_tests2", "~> 3.2", ">= 3.2.5")           # ruby >= 2.4.0, default kettle-test runner
 
   # Releasing
   spec.add_development_dependency("ruby-progressbar", "~> 1.13")                    # ruby >= 0
@@ -162,27 +162,11 @@ Gem::Specification.new do |spec|
   # spec.add_development_dependency("vcr", ">= 4")                        # 6.0 claims to support ruby >= 2.3, but fails on ruby 2.4
   # spec.add_development_dependency("webmock", ">= 3")                    # Last version to support ruby >= 2.3
   spec.add_development_dependency("appraisal", "~> 2")
-  if Gem.ruby_version < Gem::Version.new("2.5")
-    spec.add_development_dependency("aruba", "~> 1.1")
-  else
-    spec.add_development_dependency("aruba", "~> 2")
-  end
+  spec.add_development_dependency("aruba", "~> 1.1")
   spec.add_development_dependency("bundler", ">= 1.17")
-  if Gem.ruby_version < Gem::Version.new("2.5")
-    spec.add_development_dependency("capybara", "~> 3.32")
-  else
-    spec.add_development_dependency("capybara", "~> 3")
-  end
+  spec.add_development_dependency("capybara", "~> 3.32")
   spec.add_development_dependency("coveralls", "~> 0")
-  # Cucumber 9 requires Ruby >= 2.7, Cucumber 7 requires Ruby >= 2.5, and
-  # Cucumber 4 is the last compatible line for Ruby 2.4.
-  if Gem.ruby_version < Gem::Version.new("2.5")
-    spec.add_development_dependency("cucumber", "~> 4")
-  elsif Gem.ruby_version < Gem::Version.new("2.7")
-    spec.add_development_dependency("cucumber", "~> 7")
-  else
-    spec.add_development_dependency("cucumber", "~> 9")
-  end
+  spec.add_development_dependency("cucumber", "~> 4")
   spec.add_development_dependency("gem-release", "~> 2")
   spec.add_development_dependency("listen", "~> 3")
   spec.add_development_dependency("nokogiri", "~> 1.0")

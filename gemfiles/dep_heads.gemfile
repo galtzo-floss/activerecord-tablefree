@@ -2,7 +2,6 @@
 
 source "https://gem.coop"
 
-gem "jquery-rails"
-gem "rails", "~> 5.2.0"
-
 gemspec path: "../"
+
+eval_gemfile("modular/runtime_heads.gemfile")
