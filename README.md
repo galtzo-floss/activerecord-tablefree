@@ -84,7 +84,9 @@ The _amazing_ test matrix is powered by the kettle-dev stack.
 
 </details>
 
-### Enterprise Support [![Tidelift](https://tidelift.com/badges/package/rubygems/activerecord-tablefree)](https://tidelift.com/subscription/pkg/rubygems-activerecord-tablefree?utm_source=rubygems-activerecord-tablefree&utm_medium=referral&utm_campaign=readme)
+### Enterprise Support
+
+[![Tidelift](https://tidelift.com/badges/package/rubygems/activerecord-tablefree)](https://tidelift.com/subscription/pkg/rubygems-activerecord-tablefree?utm_source=rubygems-activerecord-tablefree&utm_medium=referral&utm_campaign=readme)
 
 Available as part of the Tidelift Subscription.
 
@@ -304,8 +306,7 @@ See [LICENSE.md][📄license] for the official copyright notice.
 <details markdown="1">
 <summary>Copyright holders</summary>
 
-- Copyright (c) 2008 Kenneth Kalmer
-- Copyright (c) 2009 Kenneth Kalmer
+- Copyright (c) 2008-2009 Kenneth Kalmer
 - Copyright (c) 2009 Michal Zima
 - Copyright (c) 2012-2014, 2017 Jarl Friis
 - Copyright (c) 2017-2018, 2026 Peter H. Boling

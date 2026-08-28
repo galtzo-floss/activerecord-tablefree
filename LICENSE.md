@@ -7,8 +7,7 @@ Choose the option that best fits your use case:
 
 ## Copyright Notice
 
-- Copyright (c) 2008 Kenneth Kalmer
-- Copyright (c) 2009 Kenneth Kalmer
+- Copyright (c) 2008-2009 Kenneth Kalmer
 - Copyright (c) 2009 Michal Zima
 - Copyright (c) 2012-2014, 2017 Jarl Friis
 - Copyright (c) 2017-2018, 2026 Peter H. Boling
