@@ -126,7 +126,7 @@ Gem::Specification.new do |spec|
   #       and preferably a modular one (see gemfiles/modular/*.gemfile).
 
   # Dev, Test, & Release Tasks
-  spec.add_development_dependency("kettle-dev", "~> 3.0", ">= 3.0.27")             # ruby >= 2.4
+  spec.add_development_dependency("kettle-dev", "~> 3.1", ">= 3.1.0")             # ruby >= 2.4
 
   # Security
   spec.add_development_dependency("bundler-audit", "~> 0.9.3")                      # ruby >= 2.0.0
@@ -167,7 +167,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency("capybara", "~> 3.32")
   spec.add_development_dependency("coveralls", "~> 0")
   spec.add_development_dependency("cucumber", "~> 4")
-  spec.add_development_dependency("gem-release", "~> 2")
   spec.add_development_dependency("listen", "~> 3")
   spec.add_development_dependency("nokogiri", "~> 1.0")
   spec.add_development_dependency("rails", "~> 5")
