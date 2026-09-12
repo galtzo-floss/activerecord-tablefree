@@ -1,0 +1,37 @@
+# bundler-audit ignore list.
+#
+# activerecord-tablefree deliberately floor-tests against ActiveRecord
+# down to 5.x (spec.add_dependency("activerecord", ">= 5", "< 9")), and
+# the default/root Gemfile.lock resolves to that floor (Rails 5.2.8.1,
+# sqlite3 1.7.3) so the floor stays installable. Rails 5.2 and this
+# sqlite3 1.x line are long EOL with no further patch releases, so
+# these advisories can never be "fixed" without dropping the floor.
+# They describe risk in ancient dependency-floor test fixtures, not in
+# the released gem's own runtime code paths.
+#
+# Re-run `bin/rake` locally and copy any new advisory IDs it reports
+# here (after confirming they're floor-only) rather than widening this
+# comment's rationale.
+ignore:
+  - GHSA-h47h-mwp9-c6q6 # actionmailer 5.2.8.1 - ReDoS in block_format
+  - GHSA-4g8v-vg43-wpgf # actionpack 5.2.8.1 - XSS via redirect_to
+  - GHSA-x76w-6vjr-8xgj # actionpack 5.2.8.1 - ReDoS in query parameter filtering
+  - GHSA-vfg9-r3fq-jvx4 # actionpack 5.2.8.1 - ReDoS in HTTP Token auth
+  - GHSA-vfm5-rmrh-j26v # actionpack 5.2.8.1 - CSP bypass in Action Dispatch
+  - GHSA-xp5h-f8jf-rc8q # actionview 5.2.8.1 - XSS in rails-ujs contenteditable
+  - GHSA-v55j-83pf-r9cq # actionview 5.2.8.1 - XSS in Action View tag helpers
+  - GHSA-76r7-hhxj-r776 # activerecord 5.2.8.1 - ANSI escape injection in logging
+  - GHSA-8h22-8cf7-hq6g # activestorage 5.2.8.1 - session info leak
+  - GHSA-qcfx-2mfw-w4cg # activestorage 5.2.8.1 - content type bypass in direct uploads
+  - GHSA-r46p-8f7g-vvvg # activestorage 5.2.8.1 - DoS via Range requests in proxy mode
+  - GHSA-9xrj-h377-fr87 # activestorage 5.2.8.1 - path traversal in DiskService
+  - GHSA-73f9-jhhh-hr5m # activestorage 5.2.8.1 - glob injection in DiskService
+  - GHSA-p9fm-f462-ggrg # activestorage 5.2.8.1 - DoS via multi-range requests in proxy mode
+  - GHSA-xr9x-r78c-5hrm # activestorage 5.2.8.1 - arbitrary file read / RCE in variant processing
+  - GHSA-pj73-v5mw-pm9j # activesupport 5.2.8.1 - XSS in SafeBuffer#bytesplice
+  - GHSA-cr5q-6q9f-rq6q # activesupport 5.2.8.1 - file disclosure of locally encrypted files
+  - GHSA-cg4j-q9v8-6v38 # activesupport 5.2.8.1 - ReDoS in number_to_delimited
+  - GHSA-89vf-4333-qx8v # activesupport 5.2.8.1 - XSS in SafeBuffer#%
+  - GHSA-2j26-frm8-cmj9 # activesupport 5.2.8.1 - DoS in number helpers
+  - GHSA-28hh-pr2h-2w89 # sqlite3 1.7.3 - use-after-free redefining functions with different arity
+  - GHSA-mwm8-39rw-8826 # sqlite3 1.7.3 - use-after-free in aggregate arguments
