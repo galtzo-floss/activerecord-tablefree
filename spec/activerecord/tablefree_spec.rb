@@ -311,7 +311,9 @@ RSpec.describe "ActiveRecord with real database", :active_record_5_2_compat do
 
   before(:context) do
     FileUtils.mkdir_p "tmp"
-    ActiveRecord::Base.establish_connection(adapter: "sqlite3", database: "tmp/test.db")
+    # activerecord-jdbc-adapter uses the jdbcsqlite3 adapter name before ActiveRecord 7.2.
+    jdbc_adapter = RUBY_PLATFORM == "java" && ActiveRecord.gem_version < Gem::Version.new("7.2")
+    ActiveRecord::Base.establish_connection(adapter: jdbc_adapter ? "jdbcsqlite3" : "sqlite3", database: "tmp/test.db")
     ActiveRecord::Base.connection.execute("drop table if exists chairs")
     class CreateChairs < ActiveRecord::Migration[5.0]
       def self.up

@@ -5,7 +5,7 @@
     [187, 10, 2, "Lint/LtsRuby/UnavailableMethod: Method/Proc#<< is unavailable before Ruby 2.6.", 5859461],
     [187, 19, 2, "Lint/LtsRuby/UnavailableMethod: Method/Proc#<< is unavailable before Ruby 2.6.", 5859461]
   ],
-  "activerecord-tablefree.gemspec:1613593804": [
+  "activerecord-tablefree.gemspec:2318905847": [
     [21, 8, 4, "Lint/LtsRuby/UnavailableMethod: Thread#name= is unavailable before Ruby 2.3.", 2087876002],
     [44, 24, 9, "Lint/LtsRuby/UnavailableMethod: Symbol#end_with? is unavailable before Ruby 2.7.", 308216808],
     [50, 16, 16, "Lint/LtsRuby/UnavailableMethod: Matrix/Vector#[]= is unavailable before Ruby 2.6.", 3147164910],
@@ -74,7 +74,7 @@
   "spec/activerecord/tablefree/version_spec.rb:777387847": [
     [3, 1, 38, "RSpec/SpecFilePathFormat: Spec path should end with `active_record/tablefree*_spec.rb`.", 637189594]
   ],
-  "spec/activerecord/tablefree_spec.rb:734858825": [
+  "spec/activerecord/tablefree_spec.rb:3004998427": [
     [4, 3, 4, "Security/Eval: The use of `eval` is a serious security risk.", 2087429787],
     [4, 3, 14, "Style/EvalWithLocation: Pass a binding, `__FILE__`, and `__LINE__` to `eval`.", 2120077247],
     [20, 5, 4, "Security/Eval: The use of `eval` is a serious security risk.", 2087429787],
@@ -106,28 +106,28 @@
     [301, 152, 2, "RSpec/BeEq: Prefer `be` over `eq`.", 5860785],
     [305, 16, 33, "RSpec/DescribeClass: The first argument to describe should be the class or module being tested.", 3072244121],
     [312, 3, 16, "RSpec/BeforeAfterAll: Beware of using `before(:context)` as it may cause state to leak between tests. If you are using `rspec-rails`, and `use_transactional_fixtures` is enabled, then records created in `before(:context)` are not automatically rolled back.", 3964783832],
-    [316, 5, 233, "Lint/ConstantDefinitionInBlock: Do not define constants this way within a block.", 715245245],
-    [316, 5, 233, "RSpec/LeakyConstantDeclaration: Stub class constant instead of declaring explicitly.", 715245245],
-    [326, 5, 40, "Lint/ConstantDefinitionInBlock: Do not define constants this way within a block.", 3427282103],
-    [326, 5, 40, "RSpec/LeakyConstantDeclaration: Stub class constant instead of declaring explicitly.", 3427282103],
-    [330, 3, 15, "RSpec/BeforeAfterAll: Beware of using `after(:context)` as it may cause state to leak between tests. If you are using `rspec-rails`, and `use_transactional_fixtures` is enabled, then records created in `after(:context)` are not automatically rolled back.", 2524049509],
-    [343, 5, 16, "RSpec/BeforeAfterAll: Beware of using `before(:context)` as it may cause state to leak between tests. If you are using `rspec-rails`, and `use_transactional_fixtures` is enabled, then records created in `before(:context)` are not automatically rolled back.", 3964783832],
-    [345, 7, 124, "Lint/ConstantDefinitionInBlock: Do not define constants this way within a block.", 760811414],
-    [345, 7, 124, "RSpec/LeakyConstantDeclaration: Stub class constant instead of declaring explicitly.", 760811414],
-    [349, 7, 161, "Lint/ConstantDefinitionInBlock: Do not define constants this way within a block.", 3426732234],
-    [349, 7, 161, "RSpec/LeakyConstantDeclaration: Stub class constant instead of declaring explicitly.", 3426732234],
-    [365, 23, 4, "Lint/LtsRuby/UnavailableMethod: Symbol#name is unavailable before Ruby 3.0.", 2087876002],
-    [377, 16, 42, "RSpec/DescribeClass: The first argument to describe should be the class or module being tested.", 24280805],
-    [380, 3, 16, "RSpec/BeforeAfterAll: Beware of using `before(:context)` as it may cause state to leak between tests. If you are using `rspec-rails`, and `use_transactional_fixtures` is enabled, then records created in `before(:context)` are not automatically rolled back.", 3964783832],
-    [381, 3, 15, "RSpec/BeforeAfterAll: Beware of using `after(:context)` as it may cause state to leak between tests. If you are using `rspec-rails`, and `use_transactional_fixtures` is enabled, then records created in `after(:context)` are not automatically rolled back.", 2524049509],
-    [391, 16, 39, "RSpec/DescribeClass: The first argument to describe should be the class or module being tested.", 3860922814],
-    [392, 3, 16, "RSpec/BeforeAfterAll: Beware of using `before(:context)` as it may cause state to leak between tests. If you are using `rspec-rails`, and `use_transactional_fixtures` is enabled, then records created in `before(:context)` are not automatically rolled back.", 3964783832],
-    [393, 3, 15, "RSpec/BeforeAfterAll: Beware of using `after(:context)` as it may cause state to leak between tests. If you are using `rspec-rails`, and `use_transactional_fixtures` is enabled, then records created in `after(:context)` are not automatically rolled back.", 2524049509],
-    [402, 16, 51, "RSpec/DescribeClass: The first argument to describe should be the class or module being tested.", 1810211770],
-    [403, 3, 16, "RSpec/BeforeAfterAll: Beware of using `before(:context)` as it may cause state to leak between tests. If you are using `rspec-rails`, and `use_transactional_fixtures` is enabled, then records created in `before(:context)` are not automatically rolled back.", 3964783832],
-    [404, 3, 15, "RSpec/BeforeAfterAll: Beware of using `after(:context)` as it may cause state to leak between tests. If you are using `rspec-rails`, and `use_transactional_fixtures` is enabled, then records created in `after(:context)` are not automatically rolled back.", 2524049509],
-    [413, 16, 17, "RSpec/DescribeClass: The first argument to describe should be the class or module being tested.", 1567046444],
-    [417, 9, 96, "Lint/ConstantDefinitionInBlock: Do not define constants this way within a block.", 1794776808],
-    [417, 9, 96, "RSpec/LeakyConstantDeclaration: Stub class constant instead of declaring explicitly.", 1794776808]
+    [318, 5, 233, "Lint/ConstantDefinitionInBlock: Do not define constants this way within a block.", 715245245],
+    [318, 5, 233, "RSpec/LeakyConstantDeclaration: Stub class constant instead of declaring explicitly.", 715245245],
+    [328, 5, 40, "Lint/ConstantDefinitionInBlock: Do not define constants this way within a block.", 3427282103],
+    [328, 5, 40, "RSpec/LeakyConstantDeclaration: Stub class constant instead of declaring explicitly.", 3427282103],
+    [332, 3, 15, "RSpec/BeforeAfterAll: Beware of using `after(:context)` as it may cause state to leak between tests. If you are using `rspec-rails`, and `use_transactional_fixtures` is enabled, then records created in `after(:context)` are not automatically rolled back.", 2524049509],
+    [345, 5, 16, "RSpec/BeforeAfterAll: Beware of using `before(:context)` as it may cause state to leak between tests. If you are using `rspec-rails`, and `use_transactional_fixtures` is enabled, then records created in `before(:context)` are not automatically rolled back.", 3964783832],
+    [347, 7, 124, "Lint/ConstantDefinitionInBlock: Do not define constants this way within a block.", 760811414],
+    [347, 7, 124, "RSpec/LeakyConstantDeclaration: Stub class constant instead of declaring explicitly.", 760811414],
+    [351, 7, 161, "Lint/ConstantDefinitionInBlock: Do not define constants this way within a block.", 3426732234],
+    [351, 7, 161, "RSpec/LeakyConstantDeclaration: Stub class constant instead of declaring explicitly.", 3426732234],
+    [367, 23, 4, "Lint/LtsRuby/UnavailableMethod: Symbol#name is unavailable before Ruby 3.0.", 2087876002],
+    [379, 16, 42, "RSpec/DescribeClass: The first argument to describe should be the class or module being tested.", 24280805],
+    [382, 3, 16, "RSpec/BeforeAfterAll: Beware of using `before(:context)` as it may cause state to leak between tests. If you are using `rspec-rails`, and `use_transactional_fixtures` is enabled, then records created in `before(:context)` are not automatically rolled back.", 3964783832],
+    [383, 3, 15, "RSpec/BeforeAfterAll: Beware of using `after(:context)` as it may cause state to leak between tests. If you are using `rspec-rails`, and `use_transactional_fixtures` is enabled, then records created in `after(:context)` are not automatically rolled back.", 2524049509],
+    [393, 16, 39, "RSpec/DescribeClass: The first argument to describe should be the class or module being tested.", 3860922814],
+    [394, 3, 16, "RSpec/BeforeAfterAll: Beware of using `before(:context)` as it may cause state to leak between tests. If you are using `rspec-rails`, and `use_transactional_fixtures` is enabled, then records created in `before(:context)` are not automatically rolled back.", 3964783832],
+    [395, 3, 15, "RSpec/BeforeAfterAll: Beware of using `after(:context)` as it may cause state to leak between tests. If you are using `rspec-rails`, and `use_transactional_fixtures` is enabled, then records created in `after(:context)` are not automatically rolled back.", 2524049509],
+    [404, 16, 51, "RSpec/DescribeClass: The first argument to describe should be the class or module being tested.", 1810211770],
+    [405, 3, 16, "RSpec/BeforeAfterAll: Beware of using `before(:context)` as it may cause state to leak between tests. If you are using `rspec-rails`, and `use_transactional_fixtures` is enabled, then records created in `before(:context)` are not automatically rolled back.", 3964783832],
+    [406, 3, 15, "RSpec/BeforeAfterAll: Beware of using `after(:context)` as it may cause state to leak between tests. If you are using `rspec-rails`, and `use_transactional_fixtures` is enabled, then records created in `after(:context)` are not automatically rolled back.", 2524049509],
+    [415, 16, 17, "RSpec/DescribeClass: The first argument to describe should be the class or module being tested.", 1567046444],
+    [419, 9, 96, "Lint/ConstantDefinitionInBlock: Do not define constants this way within a block.", 1794776808],
+    [419, 9, 96, "RSpec/LeakyConstantDeclaration: Stub class constant instead of declaring explicitly.", 1794776808]
   ]
 }

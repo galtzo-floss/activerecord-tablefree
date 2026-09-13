@@ -25,8 +25,12 @@ require "kettle/test/rspec"
 require "rspec/pending_for"
 require "rspec/collection_matchers"
 require "debug" if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new("2.7") && ENV["CI"].nil? && ENV.fetch("DEBUG", "false").casecmp("true").zero?
-require "sqlite3"
 require "active_record"
+if RUBY_PLATFORM == "java"
+  require "activerecord-jdbcsqlite3-adapter"
+else
+  require "sqlite3"
+end
 require "logger"
 
 if defined?(Kettle::Soup::Cover::DO_COV) && Kettle::Soup::Cover::DO_COV

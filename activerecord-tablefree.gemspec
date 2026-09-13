@@ -164,5 +164,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency("bundler", ">= 1.17")
   spec.add_development_dependency("rspec", "~> 3")
   spec.add_development_dependency("rspec-collection_matchers", "~> 1")
-  spec.add_development_dependency("sqlite3", ">= 1.3.6")                   # each Ruby resolves the sqlite3 its ActiveRecord supports
 end
