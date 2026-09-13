@@ -1,11 +1,11 @@
 {
-  "Rakefile:528237752": [
+  "Rakefile:1094732693": [
     [58, 70, 6, "Lint/LtsRuby/UnavailableMethod: Pathname#empty? is unavailable before Ruby 2.4.", 1165546895],
     [73, 8, 4, "Lint/LtsRuby/UnavailableMethod: Enumerable/Enumerator::Lazy#uniq is unavailable before Ruby 2.4.", 2087995782],
-    [188, 10, 2, "Lint/LtsRuby/UnavailableMethod: Method/Proc#<< is unavailable before Ruby 2.6.", 5859461],
-    [188, 19, 2, "Lint/LtsRuby/UnavailableMethod: Method/Proc#<< is unavailable before Ruby 2.6.", 5859461]
+    [187, 10, 2, "Lint/LtsRuby/UnavailableMethod: Method/Proc#<< is unavailable before Ruby 2.6.", 5859461],
+    [187, 19, 2, "Lint/LtsRuby/UnavailableMethod: Method/Proc#<< is unavailable before Ruby 2.6.", 5859461]
   ],
-  "activerecord-tablefree.gemspec:438341423": [
+  "activerecord-tablefree.gemspec:1613593804": [
     [21, 8, 4, "Lint/LtsRuby/UnavailableMethod: Thread#name= is unavailable before Ruby 2.3.", 2087876002],
     [44, 24, 9, "Lint/LtsRuby/UnavailableMethod: Symbol#end_with? is unavailable before Ruby 2.7.", 308216808],
     [50, 16, 16, "Lint/LtsRuby/UnavailableMethod: Matrix/Vector#[]= is unavailable before Ruby 2.6.", 3147164910],
@@ -23,28 +23,6 @@
     [60, 16, 25, "Lint/LtsRuby/UnavailableMethod: Matrix/Vector#[]= is unavailable before Ruby 2.6.", 1727630048],
     [72, 13, 2, "Lint/LtsRuby/UnavailableMethod: Method/Proc#<< is unavailable before Ruby 2.6.", 5859461],
     [97, 13, 4, "Lint/LtsRuby/UnavailableMethod: Symbol#name is unavailable before Ruby 3.0.", 2087876002]
-  ],
-  "features/step_definitions/rails_steps.rb:2096704795": [
-    [25, 9, 2, "Lint/LtsRuby/UnavailableMethod: Method/Proc#<< is unavailable before Ruby 2.6.", 5859461],
-    [101, 12, 4, "Security/Eval: The use of `eval` is a serious security risk.", 2087429787],
-    [101, 28, 4, "Lint/LtsRuby/UnavailableMethod: Set#to_s is unavailable before Ruby 2.5.", 2087961426]
-  ],
-  "features/step_definitions/tablefree.rb:3292534148": [
-    [12, 54, 1, "Lint/LtsRuby/UnavailableMethod: Enumerator#+ is unavailable before Ruby 2.6.", 177550],
-    [15, 64, 1, "Lint/LtsRuby/UnavailableMethod: Enumerator#+ is unavailable before Ruby 2.6.", 177550],
-    [21, 39, 2, "Lint/LtsRuby/UnavailableMethod: Method/Proc#<< is unavailable before Ruby 2.6.", 5859461]
-  ],
-  "features/step_definitions/web_steps.rb:825291439": [
-    [124, 41, 4, "Lint/LtsRuby/UnavailableMethod: IO/SyntaxError#path is unavailable before Ruby 3.2.", 2088095368],
-    [132, 62, 3, "Lint/LtsRuby/UnavailableMethod: Matrix/Vector#[]= is unavailable before Ruby 2.6.", 193474600],
-    [138, 3, 18, "Lint/Debugger: Remove debugger entry point `save_and_open_page`.", 502164983]
-  ],
-  "features/support/paths.rb:1016831287": [
-    [19, 43, 4, "Lint/LtsRuby/UnavailableMethod: Set#join is unavailable before Ruby 3.0.", 2088000679]
-  ],
-  "features/support/rails.rb:1037920026": [
-    [4, 24, 64, "Style/HashConversion: Prefer `ary.to_h` to `Hash[ary]`.", 1877744839],
-    [9, 98, 11, "Lint/LtsRuby/UnavailableMethod: Symbol#start_with? is unavailable before Ruby 2.7.", 1795111591]
   ],
   "gemfiles/modular/coverage_local.gemfile:2661471746": [
     [19, 27, 4, "Lint/LtsRuby/UnavailableMethod: Symbol#name is unavailable before Ruby 3.0.", 2087876002],
@@ -72,24 +50,23 @@
     [94, 5, 5, "Lint/LtsRuby/UnavailableMethod: Thread#fetch is unavailable before Ruby 2.5.", 171106201],
     [97, 31, 4, "Lint/LtsRuby/UnavailableMethod: Symbol#name is unavailable before Ruby 3.0.", 2087876002]
   ],
-  "lib/activerecord/tablefree.rb:3752765902": [
-    [52, 9, 34, "ThreadSafety/ClassAndModuleAttributes: Avoid mutating class and module attributes.", 3448620919],
-    [78, 58, 6, "Lint/LtsRuby/UnavailableMethod: Hash#except is unavailable before Ruby 3.0.", 1180523098],
-    [95, 45, 4, "Lint/LtsRuby/UnavailableMethod: Set#to_s is unavailable before Ruby 2.5.", 2087961426],
-    [102, 41, 11, "Lint/LtsRuby/UnavailableMethod: Matrix/Vector#[]= is unavailable before Ruby 2.6.", 2128803677],
-    [102, 47, 4, "Lint/LtsRuby/UnavailableMethod: Set#to_s is unavailable before Ruby 2.5.", 2087961426],
-    [102, 105, 4, "Lint/LtsRuby/UnavailableMethod: Set#to_s is unavailable before Ruby 2.5.", 2087961426],
-    [175, 27, 6, "Lint/LtsRuby/UnavailableMethod: Pathname#empty? is unavailable before Ruby 2.4.", 1165546895],
-    [177, 25, 6, "Lint/LtsRuby/UnavailableMethod: Pathname#empty? is unavailable before Ruby 2.4.", 1165546895],
-    [180, 15, 7, "Lint/LtsRuby/UnavailableMethod: Enumerable/Enumerator::Lazy#compact is unavailable before Ruby 3.1.", 3711215938],
-    [187, 9, 12, "ThreadSafety/ClassInstanceVariable: Avoid class instance variables.", 3894663404],
-    [193, 82, 1, "Lint/LtsRuby/UnavailableMethod: Enumerator#+ is unavailable before Ruby 2.6.", 177550],
-    [193, 88, 1, "Lint/LtsRuby/UnavailableMethod: Enumerator#+ is unavailable before Ruby 2.6.", 177550],
-    [193, 123, 7, "Lint/LtsRuby/UnavailableMethod: Enumerable/Enumerator::Lazy#compact is unavailable before Ruby 3.1.", 3711215938],
-    [193, 131, 4, "Lint/LtsRuby/UnavailableMethod: Set#join is unavailable before Ruby 3.0.", 2088000679],
-    [244, 31, 4, "Lint/LtsRuby/UnavailableMethod: Set#to_s is unavailable before Ruby 2.5.", 2087961426]
+  "lib/activerecord/tablefree.rb:4161601424": [
+    [53, 9, 34, "ThreadSafety/ClassAndModuleAttributes: Avoid mutating class and module attributes.", 3448620919],
+    [80, 58, 6, "Lint/LtsRuby/UnavailableMethod: Hash#except is unavailable before Ruby 3.0.", 1180523098],
+    [98, 45, 4, "Lint/LtsRuby/UnavailableMethod: Set#to_s is unavailable before Ruby 2.5.", 2087961426],
+    [105, 39, 11, "Lint/LtsRuby/UnavailableMethod: Matrix/Vector#[]= is unavailable before Ruby 2.6.", 2128803677],
+    [105, 45, 4, "Lint/LtsRuby/UnavailableMethod: Set#to_s is unavailable before Ruby 2.5.", 2087961426],
+    [186, 27, 6, "Lint/LtsRuby/UnavailableMethod: Pathname#empty? is unavailable before Ruby 2.4.", 1165546895],
+    [188, 25, 6, "Lint/LtsRuby/UnavailableMethod: Pathname#empty? is unavailable before Ruby 2.4.", 1165546895],
+    [191, 15, 7, "Lint/LtsRuby/UnavailableMethod: Enumerable/Enumerator::Lazy#compact is unavailable before Ruby 3.1.", 3711215938],
+    [198, 9, 12, "ThreadSafety/ClassInstanceVariable: Avoid class instance variables.", 3894663404],
+    [216, 82, 1, "Lint/LtsRuby/UnavailableMethod: Enumerator#+ is unavailable before Ruby 2.6.", 177550],
+    [216, 88, 1, "Lint/LtsRuby/UnavailableMethod: Enumerator#+ is unavailable before Ruby 2.6.", 177550],
+    [216, 123, 7, "Lint/LtsRuby/UnavailableMethod: Enumerable/Enumerator::Lazy#compact is unavailable before Ruby 3.1.", 3711215938],
+    [216, 131, 4, "Lint/LtsRuby/UnavailableMethod: Set#join is unavailable before Ruby 3.0.", 2088000679],
+    [267, 31, 4, "Lint/LtsRuby/UnavailableMethod: Set#to_s is unavailable before Ruby 2.5.", 2087961426]
   ],
-  "lib/activerecord/tablefree/connection.rb:2891945502": [
+  "lib/activerecord/tablefree/connection.rb:1695193679": [
     [44, 19, 4, "Lint/LtsRuby/UnavailableMethod: Set#to_s is unavailable before Ruby 2.5.", 2087961426],
     [45, 24, 4, "Lint/LtsRuby/UnavailableMethod: Set#to_s is unavailable before Ruby 2.5.", 2087961426],
     [45, 63, 4, "Lint/LtsRuby/UnavailableMethod: Set#join is unavailable before Ruby 3.0.", 2088000679]
@@ -97,7 +74,7 @@
   "spec/activerecord/tablefree/version_spec.rb:777387847": [
     [3, 1, 38, "RSpec/SpecFilePathFormat: Spec path should end with `active_record/tablefree*_spec.rb`.", 637189594]
   ],
-  "spec/activerecord/tablefree_spec.rb:1908470980": [
+  "spec/activerecord/tablefree_spec.rb:734858825": [
     [4, 3, 4, "Security/Eval: The use of `eval` is a serious security risk.", 2087429787],
     [4, 3, 14, "Style/EvalWithLocation: Pass a binding, `__FILE__`, and `__LINE__` to `eval`.", 2120077247],
     [20, 5, 4, "Security/Eval: The use of `eval` is a serious security risk.", 2087429787],
@@ -126,7 +103,7 @@
     [214, 40, 4, "Lint/LtsRuby/UnavailableMethod: Symbol#name is unavailable before Ruby 3.0.", 2087876002],
     [287, 39, 2, "RSpec/BeEq: Prefer `be` over `eq`.", 5860785],
     [291, 40, 2, "RSpec/BeEq: Prefer `be` over `eq`.", 5860785],
-    [301, 72, 2, "RSpec/BeEq: Prefer `be` over `eq`.", 5860785],
+    [301, 152, 2, "RSpec/BeEq: Prefer `be` over `eq`.", 5860785],
     [305, 16, 33, "RSpec/DescribeClass: The first argument to describe should be the class or module being tested.", 3072244121],
     [312, 3, 16, "RSpec/BeforeAfterAll: Beware of using `before(:context)` as it may cause state to leak between tests. If you are using `rspec-rails`, and `use_transactional_fixtures` is enabled, then records created in `before(:context)` are not automatically rolled back.", 3964783832],
     [316, 5, 233, "Lint/ConstantDefinitionInBlock: Do not define constants this way within a block.", 715245245],
