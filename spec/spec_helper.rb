@@ -30,8 +30,6 @@ require "active_record"
 require "logger"
 
 if defined?(Kettle::Soup::Cover::DO_COV) && Kettle::Soup::Cover::DO_COV
-  require "coveralls"
-  Coveralls.wear!
 end
 
 require "activerecord/tablefree"
@@ -47,6 +45,8 @@ RSpec.configure do |config|
   end
 
   config.before(:context, :active_record_5_2_compat) do
+    next if ActiveRecord.gem_version >= Gem::Version.new("6.0")
+
     skip_for(
       versions: Gem::Version.new("3.0.0")..Gem::Version.new("999.0.0"),
       reason: "ActiveRecord 5.2 does not support Ruby 3+ keyword argument semantics"

@@ -6,6 +6,7 @@ require "active_record"
 require "activerecord/tablefree/cast_type"
 require "activerecord/tablefree/schema_cache"
 require "activerecord/tablefree/connection"
+require "activerecord/tablefree/connection_pool"
 require "activerecord/tablefree/transaction"
 
 module ActiveRecord
@@ -52,7 +53,8 @@ module ActiveRecord
         class_attribute :tablefree_options
         self.tablefree_options = {
           database: options[:database],
-          columns_hash: {}
+          columns_hash: {},
+          cast_types: {}
         }
 
         # extend
@@ -79,7 +81,8 @@ module ActiveRecord
         @columns_hash.each do |name, column|
           define_attribute(
             name,
-            column.sql_type_metadata,
+            # Hash#fetch, not Thread#fetch.
+            tablefree_options[:cast_types].fetch(name) { column.sql_type_metadata }, # rubocop:disable Lint/LtsRuby/UnavailableMethod
             default: column.default,
             user_provided_default: false
           )
@@ -99,7 +102,20 @@ module ActiveRecord
         end
         raise InvalidColumnType, "sql_type is #{sql_type} (#{sql_type.class}), which is not supported" unless cast_class.respond_to?(:new)
         cast_type = cast_class.new(*cast_class_params)
-        tablefree_options[:columns_hash][name.to_s] = ActiveRecord::ConnectionAdapters::Column.new(name.to_s, default, cast_type, null)
+        tablefree_options[:cast_types][name.to_s] = cast_type
+        # Hash#[]= and String#to_s on column names, not Matrix/Vector#[]= or Set#to_s.
+        # rubocop:disable Lint/LtsRuby/UnavailableMethod
+        tablefree_options[:columns_hash][name.to_s] =
+          if ActiveRecord.gem_version >= Gem::Version.new("8.1")
+            ActiveRecord::ConnectionAdapters::Column.new(name.to_s, cast_type, default, nil, null)
+          elsif ActiveRecord::VERSION::MAJOR >= 6
+            type_name = cast_type.respond_to?(:type) ? cast_type.type : nil
+            metadata = type_name && ActiveRecord::ConnectionAdapters::SqlTypeMetadata.new(sql_type: type_name.to_s, type: type_name)
+            ActiveRecord::ConnectionAdapters::Column.new(name.to_s, default, metadata, null)
+          else
+            ActiveRecord::ConnectionAdapters::Column.new(name.to_s, default, cast_type, null)
+          end
+        # rubocop:enable Lint/LtsRuby/UnavailableMethod
       end
 
       # Register a set of columns with the same SQL type
@@ -133,18 +149,13 @@ module ActiveRecord
         end
       end
 
-      case ActiveRecord::VERSION::MAJOR
-      when 5
-        def find_by_sql(*_args)
-          case tablefree_options[:database]
-          when :pretend_success
-            []
-          when :fail_fast
-            raise NoDatabase, "Can't #find_by_sql on Tablefree class"
-          end
+      def find_by_sql(*_args)
+        case tablefree_options[:database]
+        when :pretend_success
+          []
+        when :fail_fast
+          raise NoDatabase, "Can't #find_by_sql on Tablefree class"
         end
-      else
-        raise Unsupported, "Unsupported ActiveRecord version"
       end
 
       def transaction
@@ -185,6 +196,18 @@ module ActiveRecord
 
       def connection
         @_connection ||= ActiveRecord::Tablefree::Connection.new
+      end
+
+      def lease_connection
+        connection
+      end
+
+      def with_connection(**)
+        yield connection
+      end
+
+      def connection_pool
+        connection.pool
       end
     end
 
@@ -227,7 +250,7 @@ module ActiveRecord
         end
       end
 
-      def add_to_transaction
+      def add_to_transaction(*_args)
       end
 
       private

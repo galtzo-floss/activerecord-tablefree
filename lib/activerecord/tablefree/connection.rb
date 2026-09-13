@@ -55,7 +55,15 @@ module ActiveRecord::Tablefree
       ""
     end
 
-    def lookup_cast_type_from_column(*_args)
+    def lookup_cast_type_from_column(column = nil, *_args)
+      type = column.respond_to?(:type) ? column.type : nil
+      if type
+        # ActiveModel's registry needs no adapter (and so no database connection).
+        ActiveModel::Type.lookup(type)
+      else
+        @_cast_type ||= ActiveRecord::Tablefree::CastType.new
+      end
+    rescue ArgumentError
       @_cast_type ||= ActiveRecord::Tablefree::CastType.new
     end
 
@@ -65,6 +73,15 @@ module ActiveRecord::Tablefree
 
     def execute(*_args)
       {}
+    end
+
+    # Tablefree models never persist, so transactions just run their block.
+    def transaction(*_args, **_kwargs)
+      yield
+    end
+
+    def pool
+      @_pool ||= ActiveRecord::Tablefree::ConnectionPool.new(self)
     end
 
     # This is used in the StatementCache object.
