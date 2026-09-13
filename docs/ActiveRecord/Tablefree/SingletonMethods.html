@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: ActiveRecord::Tablefree::SingletonMethods
+  
+    &mdash; Documentation by YARD 0.9.45
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css">
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css">
+
+<script type="text/javascript">
+  pathId = "ActiveRecord::Tablefree::SingletonMethods";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="main_progress" aria-hidden="true"></div>
+
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (S)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../ActiveRecord.html" title="ActiveRecord (module)">ActiveRecord</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Tablefree.html" title="ActiveRecord::Tablefree (module)">Tablefree</a></span></span>
+     &raquo; 
+    <span class="title">SingletonMethods</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Module: ActiveRecord::Tablefree::SingletonMethods
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/activerecord/tablefree.rb
+</dd>
+  </dl>
+  
+</div>
+
+
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_columns-instance_method" title="#add_columns (instance method)">#<strong>add_columns</strong>(sql_type, *args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Register a set of columns with the same SQL type.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#all-instance_method" title="#all (instance method)">#<strong>all</strong>(*_args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#column-instance_method" title="#column (instance method)">#<strong>column</strong>(name, sql_type = nil, default = nil, null = true, cast_class_params = nil)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Register a new column.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#destroy-instance_method" title="#destroy (instance method)">#<strong>destroy</strong>(*_args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#destroy_all-instance_method" title="#destroy_all (instance method)">#<strong>destroy_all</strong>(*_args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#find_by_sql-instance_method" title="#find_by_sql (instance method)">#<strong>find_by_sql</strong>(*_args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#load_schema!-instance_method" title="#load_schema! (instance method)">#<strong>load_schema!</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Used internally by ActiveRecord 5.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#table_exists%3F-instance_method" title="#table_exists? (instance method)">#<strong>table_exists?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#tablefree%3F-instance_method" title="#tablefree? (instance method)">#<strong>tablefree?</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#transaction-instance_method" title="#transaction (instance method)">#<strong>transaction</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+    
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="add_columns-instance_method">
+  
+    #<strong>add_columns</strong>(sql_type, *args)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Register a set of columns with the same SQL type</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+122
+123
+124
+125
+126</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/activerecord/tablefree.rb', line 122</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_add_columns'>add_columns</span><span class='lparen'>(</span><span class='id identifier rubyid_sql_type'>sql_type</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_args'>args</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_col'>col</span><span class='op'>|</span>
+    <span class='id identifier rubyid_column'>column</span> <span class='id identifier rubyid_col'>col</span><span class='comma'>,</span> <span class='id identifier rubyid_sql_type'>sql_type</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="all-instance_method">
+  
+    #<strong>all</strong>(*_args)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+137
+138
+139
+140
+141</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/activerecord/tablefree.rb', line 137</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_all'>all</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid__args'>_args</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='lbracket'>[</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id identifier rubyid_tablefree_options'>tablefree_options</span><span class='lbracket'>[</span><span class='symbol'>:database</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='symbol'>:pretend_success</span>
+
+  <span class='kw'>super</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="column-instance_method">
+  
+    #<strong>column</strong>(name, sql_type = nil, default = nil, null = true, cast_class_params = nil)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Register a new column.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="InvalidColumnType.html" title="ActiveRecord::Tablefree::InvalidColumnType (class)">InvalidColumnType</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/activerecord/tablefree.rb', line 93</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_column'>column</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_sql_type'>sql_type</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_default'>default</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_null'>null</span> <span class='op'>=</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='id identifier rubyid_cast_class_params'>cast_class_params</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_cast_class'>cast_class</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='id identifier rubyid_sql_type'>sql_type</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Class</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_sql_type'>sql_type</span> <span class='op'>&lt;</span> <span class='const'>ActiveModel</span><span class='op'>::</span><span class='const'>Type</span><span class='op'>::</span><span class='const'>Value</span>
+    <span class='id identifier rubyid_sql_type'>sql_type</span>
+  <span class='kw'>else</span>
+    <span class='kw'>begin</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ActiveRecord::Type::</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sql_type'>sql_type</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_camelize'>camelize</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_constantize'>constantize</span>
+    <span class='kw'>rescue</span>
+      <span class='kw'>nil</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="InvalidColumnType.html" title="ActiveRecord::Tablefree::InvalidColumnType (class)">InvalidColumnType</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>sql_type is </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sql_type'>sql_type</span><span class='embexpr_end'>}</span><span class='tstring_content'> (</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_sql_type'>sql_type</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='embexpr_end'>}</span><span class='tstring_content'>), which is not supported</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_cast_class'>cast_class</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:new</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_cast_type'>cast_type</span> <span class='op'>=</span> <span class='id identifier rubyid_cast_class'>cast_class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_cast_class_params'>cast_class_params</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_tablefree_options'>tablefree_options</span><span class='lbracket'>[</span><span class='symbol'>:cast_types</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_cast_type'>cast_type</span>
+  <span class='comment'># Hash#[]= and String#to_s on column names, not Matrix/Vector#[]= or Set#to_s.
+</span>  <span class='comment'># rubocop:disable Lint/LtsRuby/UnavailableMethod
+</span>  <span class='id identifier rubyid_tablefree_options'>tablefree_options</span><span class='lbracket'>[</span><span class='symbol'>:columns_hash</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rbracket'>]</span> <span class='op'>=</span>
+    <span class='kw'>if</span> <span class='const'><span class='object_link'><a href="../../ActiveRecord.html" title="ActiveRecord (module)">ActiveRecord</a></span></span><span class='period'>.</span><span class='id identifier rubyid_gem_version'>gem_version</span> <span class='op'>&gt;=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Version</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>8.1</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+      <span class='const'><span class='object_link'><a href="../../ActiveRecord.html" title="ActiveRecord (module)">ActiveRecord</a></span></span><span class='op'>::</span><span class='const'>ConnectionAdapters</span><span class='op'>::</span><span class='const'>Column</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='comma'>,</span> <span class='id identifier rubyid_cast_type'>cast_type</span><span class='comma'>,</span> <span class='id identifier rubyid_default'>default</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_null'>null</span><span class='rparen'>)</span>
+    <span class='kw'>elsif</span> <span class='const'><span class='object_link'><a href="../../ActiveRecord.html" title="ActiveRecord (module)">ActiveRecord</a></span></span><span class='op'>::</span><span class='const'>VERSION</span><span class='op'>::</span><span class='const'>MAJOR</span> <span class='op'>&gt;=</span> <span class='int'>6</span>
+      <span class='id identifier rubyid_type_name'>type_name</span> <span class='op'>=</span> <span class='id identifier rubyid_cast_type'>cast_type</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:type</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_cast_type'>cast_type</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span> <span class='op'>:</span> <span class='kw'>nil</span>
+      <span class='id identifier rubyid_metadata'>metadata</span> <span class='op'>=</span> <span class='id identifier rubyid_type_name'>type_name</span> <span class='op'>&amp;&amp;</span> <span class='const'><span class='object_link'><a href="../../ActiveRecord.html" title="ActiveRecord (module)">ActiveRecord</a></span></span><span class='op'>::</span><span class='const'>ConnectionAdapters</span><span class='op'>::</span><span class='const'>SqlTypeMetadata</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='label'>sql_type:</span> <span class='id identifier rubyid_type_name'>type_name</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='comma'>,</span> <span class='label'>type:</span> <span class='id identifier rubyid_type_name'>type_name</span><span class='rparen'>)</span>
+      <span class='const'><span class='object_link'><a href="../../ActiveRecord.html" title="ActiveRecord (module)">ActiveRecord</a></span></span><span class='op'>::</span><span class='const'>ConnectionAdapters</span><span class='op'>::</span><span class='const'>Column</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='comma'>,</span> <span class='id identifier rubyid_default'>default</span><span class='comma'>,</span> <span class='id identifier rubyid_metadata'>metadata</span><span class='comma'>,</span> <span class='id identifier rubyid_null'>null</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='const'><span class='object_link'><a href="../../ActiveRecord.html" title="ActiveRecord (module)">ActiveRecord</a></span></span><span class='op'>::</span><span class='const'>ConnectionAdapters</span><span class='op'>::</span><span class='const'>Column</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='comma'>,</span> <span class='id identifier rubyid_default'>default</span><span class='comma'>,</span> <span class='id identifier rubyid_cast_type'>cast_type</span><span class='comma'>,</span> <span class='id identifier rubyid_null'>null</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='comment'># rubocop:enable Lint/LtsRuby/UnavailableMethod
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="destroy-instance_method">
+  
+    #<strong>destroy</strong>(*_args)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+128
+129
+130
+131
+132
+133
+134
+135</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/activerecord/tablefree.rb', line 128</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_destroy'>destroy</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid__args'>_args</span><span class='rparen'>)</span>
+  <span class='kw'>case</span> <span class='id identifier rubyid_tablefree_options'>tablefree_options</span><span class='lbracket'>[</span><span class='symbol'>:database</span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='symbol'>:pretend_success</span>
+    <span class='id identifier rubyid_new'>new</span>
+  <span class='kw'>when</span> <span class='symbol'>:fail_fast</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="NoDatabase.html" title="ActiveRecord::Tablefree::NoDatabase (class)">NoDatabase</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Can&#39;t #destroy on Tablefree class</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="destroy_all-instance_method">
+  
+    #<strong>destroy_all</strong>(*_args)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+143
+144
+145
+146
+147
+148
+149
+150</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/activerecord/tablefree.rb', line 143</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_destroy_all'>destroy_all</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid__args'>_args</span><span class='rparen'>)</span>
+  <span class='kw'>case</span> <span class='id identifier rubyid_tablefree_options'>tablefree_options</span><span class='lbracket'>[</span><span class='symbol'>:database</span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='symbol'>:pretend_success</span>
+    <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='symbol'>:fail_fast</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="NoDatabase.html" title="ActiveRecord::Tablefree::NoDatabase (class)">NoDatabase</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Can&#39;t #destroy_all on Tablefree class</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="find_by_sql-instance_method">
+  
+    #<strong>find_by_sql</strong>(*_args)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+152
+153
+154
+155
+156
+157
+158
+159</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/activerecord/tablefree.rb', line 152</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_find_by_sql'>find_by_sql</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid__args'>_args</span><span class='rparen'>)</span>
+  <span class='kw'>case</span> <span class='id identifier rubyid_tablefree_options'>tablefree_options</span><span class='lbracket'>[</span><span class='symbol'>:database</span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='symbol'>:pretend_success</span>
+    <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='kw'>when</span> <span class='symbol'>:fail_fast</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="NoDatabase.html" title="ActiveRecord::Tablefree::NoDatabase (class)">NoDatabase</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Can&#39;t #find_by_sql on Tablefree class</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="load_schema!-instance_method">
+  
+    #<strong>load_schema!</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Used internally by ActiveRecord 5.  This is the special hook that makes everything else work.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/activerecord/tablefree.rb', line 79</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_load_schema!'>load_schema!</span>
+  <span class='ivar'>@columns_hash</span> <span class='op'>=</span> <span class='id identifier rubyid_tablefree_options'>tablefree_options</span><span class='lbracket'>[</span><span class='symbol'>:columns_hash</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_except'>except</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_ignored_columns'>ignored_columns</span><span class='rparen'>)</span>
+  <span class='ivar'>@columns_hash</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_column'>column</span><span class='op'>|</span>
+    <span class='id identifier rubyid_define_attribute'>define_attribute</span><span class='lparen'>(</span>
+      <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span>
+      <span class='comment'># Hash#fetch, not Thread#fetch.
+</span>      <span class='id identifier rubyid_tablefree_options'>tablefree_options</span><span class='lbracket'>[</span><span class='symbol'>:cast_types</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_column'>column</span><span class='period'>.</span><span class='id identifier rubyid_sql_type_metadata'>sql_type_metadata</span> <span class='rbrace'>}</span><span class='comma'>,</span> <span class='comment'># rubocop:disable Lint/LtsRuby/UnavailableMethod
+</span>      <span class='label'>default:</span> <span class='id identifier rubyid_column'>column</span><span class='period'>.</span><span class='id identifier rubyid_default'>default</span><span class='comma'>,</span>
+      <span class='label'>user_provided_default:</span> <span class='kw'>false</span>
+    <span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="table_exists?-instance_method">
+  
+    #<strong>table_exists?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+175
+176
+177</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/activerecord/tablefree.rb', line 175</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_table_exists?'>table_exists?</span>
+  <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="tablefree?-instance_method">
+  
+    #<strong>tablefree?</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+171
+172
+173</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/activerecord/tablefree.rb', line 171</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_tablefree?'>tablefree?</span>
+  <span class='kw'>true</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="transaction-instance_method">
+  
+    #<strong>transaction</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+161
+162
+163
+164
+165
+166
+167
+168
+169</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/activerecord/tablefree.rb', line 161</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_transaction'>transaction</span>
+  <span class='comment'>#        case tablefree_options[:database]
+</span>  <span class='comment'>#        when :pretend_success
+</span>  <span class='ivar'>@_current_transaction_records</span> <span class='op'>||=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='kw'>yield</span>
+  <span class='comment'>#        when :fail_fast
+</span>  <span class='comment'>#          raise NoDatabase.new(&quot;Can&#39;t #transaction on Tablefree class&quot;)
+</span>  <span class='comment'>#        end
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Sun Sep 13 14:13:32 2026 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.45 (ruby-4.0.6).
+</div>
+
+    </div>
+  </body>
+</html>

@@ -25,13 +25,15 @@ require "kettle/test/rspec"
 require "rspec/pending_for"
 require "rspec/collection_matchers"
 require "debug" if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new("2.7") && ENV["CI"].nil? && ENV.fetch("DEBUG", "false").casecmp("true").zero?
-require "sqlite3"
 require "active_record"
+if RUBY_PLATFORM == "java"
+  require "activerecord-jdbcsqlite3-adapter"
+else
+  require "sqlite3"
+end
 require "logger"
 
 if defined?(Kettle::Soup::Cover::DO_COV) && Kettle::Soup::Cover::DO_COV
-  require "coveralls"
-  Coveralls.wear!
 end
 
 require "activerecord/tablefree"
@@ -47,9 +49,11 @@ RSpec.configure do |config|
   end
 
   config.before(:context, :active_record_5_2_compat) do
+    next if ActiveRecord.gem_version >= Gem::Version.new("6.0")
+
     skip_for(
-      versions: Gem::Version.new("4.0.0")..Gem::Version.new("999.0.0"),
-      reason: "ActiveRecord 5.2 does not support Ruby 4 keyword argument semantics"
+      versions: Gem::Version.new("3.0.0")..Gem::Version.new("999.0.0"),
+      reason: "ActiveRecord 5.2 does not support Ruby 3+ keyword argument semantics"
     )
   end
 end

@@ -166,7 +166,6 @@ rescue LoadError
 end
 require "appraisal"
 require "rake/testtask"
-require "cucumber/rake/task"
 
 desc "Default: clean, all."
 
@@ -191,11 +190,6 @@ Rake::TestTask.new(:test) do |t|
 end
 
 desc "Run specs"
-
-desc "Run integration test"
-Cucumber::Rake::Task.new do |t|
-  t.cucumber_opts = %w[--format progress]
-end
 
 desc "Clean up files."
 task :clean do |_t|

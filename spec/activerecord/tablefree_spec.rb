@@ -50,7 +50,7 @@ RSpec.shared_examples "an active record instance" do
   it { is_expected.to respond_to :id= }
   it { is_expected.to respond_to :name }
   it { is_expected.to respond_to :name= }
-  it { is_expected.to respond_to :update_attributes }
+  it { is_expected.to respond_to((ActiveRecord.gem_version >= Gem::Version.new("6.1")) ? :update : :update_attributes) }
 
   describe "#attributes=" do
     before { subject.attributes = ({name: "Jarl Friis", wooden: "false"}) }
@@ -172,7 +172,7 @@ RSpec.shared_examples "a tablefree model instance with fail_fast" do
 
   describe "#update_attributes" do
     it "raises ActiveRecord::Tablefree::NoDatabase" do
-      expect { subject.update_attributes(name: "Jarl") }.to raise_exception(StandardError)
+      expect { subject.public_send((ActiveRecord.gem_version >= Gem::Version.new("6.1")) ? :update : :update_attributes, name: "Jarl") }.to raise_exception(StandardError)
     end
   end
 end
@@ -223,7 +223,7 @@ RSpec.describe "Tablefree nested with fail_fast" do
     describe "#update_attributes" do
       it "raises ActiveRecord::Tablefree::NoDatabase" do
         expect do
-          subject.update_attributes(arm_rests: {name: "nice arm_rest"})
+          subject.public_send((ActiveRecord.gem_version >= Gem::Version.new("6.1")) ? :update : :update_attributes, arm_rests: {name: "nice arm_rest"})
         end.to raise_exception(StandardError)
       end
     end
@@ -298,7 +298,7 @@ RSpec.shared_examples "an instance with succeeding database" do
   end
 
   describe "#update_attributes" do
-    specify { expect(subject.update_attributes(name: "Jarl Friis")).to eq true }
+    specify { expect(subject.public_send((ActiveRecord.gem_version >= Gem::Version.new("6.1")) ? :update : :update_attributes, name: "Jarl Friis")).to eq true }
   end
 end
 
@@ -311,7 +311,9 @@ RSpec.describe "ActiveRecord with real database", :active_record_5_2_compat do
 
   before(:context) do
     FileUtils.mkdir_p "tmp"
-    ActiveRecord::Base.establish_connection(adapter: "sqlite3", database: "tmp/test.db")
+    # activerecord-jdbc-adapter uses the jdbcsqlite3 adapter name before ActiveRecord 7.2.
+    jdbc_adapter = RUBY_PLATFORM == "java" && ActiveRecord.gem_version < Gem::Version.new("7.2")
+    ActiveRecord::Base.establish_connection(adapter: jdbc_adapter ? "jdbcsqlite3" : "sqlite3", database: "tmp/test.db")
     ActiveRecord::Base.connection.execute("drop table if exists chairs")
     class CreateChairs < ActiveRecord::Migration[5.0]
       def self.up
@@ -329,7 +331,7 @@ RSpec.describe "ActiveRecord with real database", :active_record_5_2_compat do
 
   after(:context) do
     remove_models
-    ActiveRecord::Base.clear_all_connections!
+    (ActiveRecord::Base.respond_to?(:clear_all_connections!) ? ActiveRecord::Base : ActiveRecord::Base.connection_handler).clear_all_connections!
   end
 
   it_behaves_like "a model with succeeding database"

@@ -20,6 +20,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+- Support ActiveRecord 6.0 through 8.1 (previously only 5.x loaded; newer
+  versions raised `ActiveRecord::Tablefree::Unsupported`).
+
 - kettle-jem-template-20260720-005 - README Support & Community links now
   include RubyForum.
 - kettle-jem-template-20260726-001 - Projects now include YARD lint
@@ -53,6 +56,9 @@ Please file a bug if you notice a violation of semantic versioning.
 ### Deprecated
 
 ### Removed
+
+- Unmaintained Rails 2-era cucumber features and their development
+  dependencies (never run in CI).
 
 ### Fixed
 

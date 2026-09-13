@@ -22,6 +22,16 @@ module ActiveRecord::Tablefree
       args
     end
 
+    # Needed for ActiveRecord 7.2+
+    def serialized?
+      false
+    end
+
+    # Needed for ActiveRecord 7.2+
+    def mutable?
+      false
+    end
+
     def changed?(*_args)
       false
     end

@@ -161,17 +161,7 @@ Gem::Specification.new do |spec|
   # See: https://github.com/vcr/vcr/issues/1057
   # spec.add_development_dependency("vcr", ">= 4")                        # 6.0 claims to support ruby >= 2.3, but fails on ruby 2.4
   # spec.add_development_dependency("webmock", ">= 3")                    # Last version to support ruby >= 2.3
-  spec.add_development_dependency("appraisal", "~> 2")
-  spec.add_development_dependency("aruba", "~> 1.1")
   spec.add_development_dependency("bundler", ">= 1.17")
-  spec.add_development_dependency("capybara", "~> 3.32")
-  spec.add_development_dependency("coveralls", "~> 0")
-  spec.add_development_dependency("cucumber", "~> 4")
-  spec.add_development_dependency("listen", "~> 3")
-  spec.add_development_dependency("nokogiri", "~> 1.0")
-  spec.add_development_dependency("rails", "~> 5")
   spec.add_development_dependency("rspec", "~> 3")
   spec.add_development_dependency("rspec-collection_matchers", "~> 1")
-  spec.add_development_dependency("sqlite3", "~> 1")
-  spec.add_development_dependency("wwtd", "~> 1")
 end
