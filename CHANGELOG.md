@@ -20,6 +20,25 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [3.1.9] - 2026-10-01
+
+- TAG: [v3.1.9][3.1.9t]
+- COVERAGE: 100.00% -- 5/5 lines in 1 files
+- BRANCH COVERAGE: 0.00% -- 0/0 branches in 1 files
+- 41.33% documented
+
+### Added
+
 - Support ActiveRecord 6.0 through 8.1 (previously only 5.x loaded; newer
   versions raised `ActiveRecord::Tablefree::Unsupported`).
 
@@ -62,8 +81,6 @@ Please file a bug if you notice a violation of semantic versioning.
   - dependencies (6)
   - other (2)
   - workflows (30)
-
-### Deprecated
 
 ### Removed
 
@@ -120,6 +137,6 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Make Ruby 4 coverage explicit for the legacy ActiveRecord 5 compatibility path.
 
-### Security
-
-[Unreleased]: https://gitlab.com/galtzo-floss/activerecord-tablefree/-/compare/HEAD
+[Unreleased]: https://github.com/galtzo-floss/activerecord-tablefree/compare/v3.1.9...HEAD
+[3.1.9]: https://github.com/galtzo-floss/activerecord-tablefree/compare/8834b0725aeb45d1a1f6e5c9776e094c9cde69e1...v3.1.9
+[3.1.9t]: https://github.com/galtzo-floss/activerecord-tablefree/releases/tag/v3.1.9
