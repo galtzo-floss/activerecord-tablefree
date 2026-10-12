@@ -8,16 +8,6 @@
       ]
     }
   ],
-  "action: remove_modular_gem\nreason: \"The gemspec owns the project's test dependency.\"": [
-    {
-      "file": ".structuredmerge/kettle-jem.yml",
-      "lines": [
-        112,
-        117,
-        122
-      ]
-    }
-  ],
   "config: .licenserc.yaml\nmode: \"check\"": [
     {
       "file": ".github/workflows/license-eye.yml",
@@ -27,32 +17,12 @@
       ]
     }
   ],
-  "direct: activerecord-tablefree.gemspec\nmodular: gemfiles/modular/shunted.gemfile": [
-    {
-      "file": ".structuredmerge/kettle-jem.yml",
-      "lines": [
-        110,
-        115,
-        120
-      ]
-    }
-  ],
   "exec_cmd: \"kettle-test\"\nrubygems: latest": [
     {
       "file": ".github/workflows/current.yml",
       "lines": [
         43,
         49
-      ]
-    }
-  ],
-  "modular: gemfiles/modular/shunted.gemfile\naction: remove_modular_gem": [
-    {
-      "file": ".structuredmerge/kettle-jem.yml",
-      "lines": [
-        111,
-        116,
-        121
       ]
     }
   ]
