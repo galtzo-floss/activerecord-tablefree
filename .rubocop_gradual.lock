@@ -3,7 +3,7 @@
     [53, 9, 34, "ThreadSafety/ClassAndModuleAttributes: Avoid mutating class and module attributes.", 3448620919],
     [198, 9, 12, "ThreadSafety/ClassInstanceVariable: Avoid class instance variables.", 3894663404]
   ],
-  "spec/activerecord/tablefree/version_spec.rb:777387847": [
+  "spec/activerecord/tablefree/version_spec.rb:3287478714": [
     [3, 1, 38, "RSpec/SpecFilePathFormat: Spec path should end with `active_record/tablefree*_spec.rb`.", 637189594]
   ],
   "spec/activerecord/tablefree_spec.rb:3004998427": [
