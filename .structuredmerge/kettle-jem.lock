@@ -2,7 +2,7 @@
 version: 1
 template_state:
   version: 7.1.38
-  applied_at: '2026-10-21'
+  applied_at: '2026-10-22'
   changelog_replay:
     last_entry_key: kettle-jem-template-20260913-001
     last_entry_date: '2026-09-13'
@@ -781,8 +781,8 @@ files:
   README.md:
     recipe: template_source_application_README_md
     action: write
-    dest_sha256: 72e6c4b0f4098ba28110ea0db4321d431929dffd83c35c7dae9f0ba197d7335e
-    input_fingerprint: 243194926d44ea3661d4fa8beac6382a28110a8a82c7decbee89ee1ee6bcc461
+    dest_sha256: 5b8c2fef37244b2e8f9d46b5ee8381c6ab622b919fc1646ee5a7d8fc093bec7d
+    input_fingerprint: 4040c966ab8b89e90c797a70f1b5ddb25fe4a9dfe6f656d0dccb91eeacae1b24
     template_sources:
     - README.md.example
   REEK:
@@ -816,8 +816,8 @@ files:
   activerecord-tablefree.gemspec:
     recipe: template_source_application_activerecord_tablefree_gemspec
     action: write
-    dest_sha256: '05478301457af19076bea348e332b413af407445e6db9def516746ef32465c78'
-    input_fingerprint: d74c480b50d8e45db4dee611cc1c5d2476832225ff61cb3cb791f267367b4836
+    dest_sha256: 159d218cb41fd7f4ee5c3fcad8dca261da2866920b98b54e4d54d00702228c2c
+    input_fingerprint: 2c4c63b10394d7ac2861249250fce911470a9a7708f9769ae3b99cd0a181f116
     template_sources:
     - gem.gemspec.example
   bin/setup:

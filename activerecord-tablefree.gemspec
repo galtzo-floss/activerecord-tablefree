@@ -23,8 +23,8 @@ Gem::Specification.new do |spec|
   spec.authors = ["Jarl Friis", "Kenneth Kalmer", "Michal Zima", "Peter H. Boling", "behrooz shabani (everplays)", "Tobias Suchy", "Nils Öjes"]
   spec.email = ["floss@galtzo.com"]
 
-  spec.summary = "💎 A library for implementing tablefree ActiveRecord models in Rails 5+"
-  spec.description = "💎 ActiveRecord Tablefree Models provides a simple mixin for creating models that are not bound to the database. This approach is useful for taking advantage of the features of ActiveRecord such as validation, relationships, nested_attributes, etc."
+  spec.summary = "🍽️ A library for implementing tablefree ActiveRecord models in Rails 5+"
+  spec.description = "🍽️ ActiveRecord Tablefree Models provides a simple mixin for creating models that are not bound to the database. This approach is useful for taking advantage of the features of ActiveRecord such as validation, relationships, nested_attributes, etc."
   spec.homepage = "https://github.com/galtzo-floss/activerecord-tablefree"
   spec.licenses = ["MIT"]
   spec.required_ruby_version = ">= 2.2.2"
@@ -62,7 +62,7 @@ Gem::Specification.new do |spec|
   gemspec_root = __dir__
   relative_package_path = lambda do |path|
     prefix = "#{gemspec_root}/"
-    (path[0, prefix.length] == prefix) ? path[prefix.length..-1] : path
+    path[0, prefix.length] == prefix ? path[prefix.length..-1] : path
   end
   enumerate_package_glob = lambda do |glob|
     files = []
