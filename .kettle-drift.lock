@@ -1,13 +1,4 @@
 {
-  "- code and tests (1)\n- dependencies (6)": [
-    {
-      "file": "CHANGELOG.md",
-      "lines": [
-        30,
-        91
-      ]
-    }
-  ],
   "- ruby: \"ruby\"\nappraisal: \"current\"": [
     {
       "file": ".github/workflows/current.yml",
