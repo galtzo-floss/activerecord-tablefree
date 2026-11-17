@@ -38,6 +38,11 @@ eval_gemfile "gemfiles/modular/templating.gemfile" if
     ENV.fetch("STRUCTUREDMERGE_DEV", "false").casecmp("false") != 0 ||
     ENV.fetch("STRUCTUREDMERGE_CORE_DEV", "false").casecmp("false") != 0
 
+# kettle-jem:freeze
+# Default local test bundle — spec_helper requires sqlite3 (MRI) / the JDBC adapter (JRuby).
+eval_gemfile "gemfiles/modular/activerecord_support_modern.gemfile"
+# kettle-jem:unfreeze
+
 # Debugging
 eval_gemfile "gemfiles/modular/debug.gemfile"
 
